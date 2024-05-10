@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "925838180081",
+    "project_id": "education-kids-2181c",
+    "storage_bucket": "education-kids-2181c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925838180081:android:dcbfa0973e1d4deef6f350",
+        "android_client_info": {
+          "package_name": "com.example.educational_kids_game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925838180081-q23tffnkkdkn2h2m1env50vg3ofv81q4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.educational_kids_game",
+            "certificate_hash": "e623ca4983d522c851be9d7d03efcd4044e4ee54"
+          }
+        },
+        {
+          "client_id": "925838180081-gaf9c6jfpb4kef3t5lhh6bfqe3salffd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_WTI3r-oafh5ctisUu2E6O5AEQo2Ff7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925838180081-gaf9c6jfpb4kef3t5lhh6bfqe3salffd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "925838180081-4l0uifhl7jch55p7ib6s1fhd6a2ngu8r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.educationalKidsGame"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
