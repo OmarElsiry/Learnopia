@@ -49,7 +49,7 @@ class EducationKids extends StatelessWidget {
         theme:
             ThemeData.light().copyWith(scaffoldBackgroundColor: kprimaryColor),
         routes: Approutes.routes,
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false ,
         home: const SigninView(),
       ),
     );
