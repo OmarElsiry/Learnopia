@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "925838180081",
+    "firebase_url": "https://education-kids-2181c-default-rtdb.firebaseio.com",
     "project_id": "education-kids-2181c",
     "storage_bucket": "education-kids-2181c.appspot.com"
   },
@@ -14,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "925838180081-q23tffnkkdkn2h2m1env50vg3ofv81q4.apps.googleusercontent.com",
+          "client_id": "925838180081-20f76goivvla7k98gkp21taoprrm4v9b.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.educational_kids_game",
-            "certificate_hash": "e623ca4983d522c851be9d7d03efcd4044e4ee54"
+            "certificate_hash": "e06841a4e986112ba09b2addaf883ebf3ca2b85b"
           }
         },
         {

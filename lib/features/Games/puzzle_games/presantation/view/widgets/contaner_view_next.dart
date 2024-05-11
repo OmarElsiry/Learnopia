@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ContanerViewNext extends StatefulWidget {
-  const ContanerViewNext({super.key});
-
-  @override
-  State<ContanerViewNext> createState() => _ContanerViewNextState();
-}
-
-class _ContanerViewNextState extends State<ContanerViewNext> {
+class ContanerViewNext extends StatelessWidget {
+  const ContanerViewNext({super.key, required this.ontap});
+  final void Function() ontap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        
-      },
+      onTap: ontap ,
       child: Container(
         width: 324,
         height: 50,

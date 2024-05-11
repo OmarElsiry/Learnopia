@@ -25,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -52,6 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '925838180081',
     projectId: 'education-kids-2181c',
     authDomain: 'education-kids-2181c.firebaseapp.com',
+    databaseURL: 'https://education-kids-2181c-default-rtdb.firebaseio.com',
     storageBucket: 'education-kids-2181c.appspot.com',
     measurementId: 'G-EVGTL9X7R0',
   );
@@ -61,6 +56,7 @@ class DefaultFirebaseOptions {
     appId: '1:925838180081:android:dcbfa0973e1d4deef6f350',
     messagingSenderId: '925838180081',
     projectId: 'education-kids-2181c',
+    databaseURL: 'https://education-kids-2181c-default-rtdb.firebaseio.com',
     storageBucket: 'education-kids-2181c.appspot.com',
   );
 
@@ -69,10 +65,34 @@ class DefaultFirebaseOptions {
     appId: '1:925838180081:ios:fd08c955d7560b2cf6f350',
     messagingSenderId: '925838180081',
     projectId: 'education-kids-2181c',
+    databaseURL: 'https://education-kids-2181c-default-rtdb.firebaseio.com',
     storageBucket: 'education-kids-2181c.appspot.com',
-    androidClientId: '925838180081-q23tffnkkdkn2h2m1env50vg3ofv81q4.apps.googleusercontent.com',
+    androidClientId: '925838180081-20f76goivvla7k98gkp21taoprrm4v9b.apps.googleusercontent.com',
     iosClientId: '925838180081-4l0uifhl7jch55p7ib6s1fhd6a2ngu8r.apps.googleusercontent.com',
     iosBundleId: 'com.example.educationalKidsGame',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBZIjZ5RiVvnNFcZVJ6TQ5ePf9YL0Lb574',
+    appId: '1:925838180081:ios:fd08c955d7560b2cf6f350',
+    messagingSenderId: '925838180081',
+    projectId: 'education-kids-2181c',
+    databaseURL: 'https://education-kids-2181c-default-rtdb.firebaseio.com',
+    storageBucket: 'education-kids-2181c.appspot.com',
+    androidClientId: '925838180081-20f76goivvla7k98gkp21taoprrm4v9b.apps.googleusercontent.com',
+    iosClientId: '925838180081-4l0uifhl7jch55p7ib6s1fhd6a2ngu8r.apps.googleusercontent.com',
+    iosBundleId: 'com.example.educationalKidsGame',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyBLyrKF9KxB4dKkDKs_1yIkmGb5sMHqwxE',
+    appId: '1:925838180081:web:ec385e361b370587f6f350',
+    messagingSenderId: '925838180081',
+    projectId: 'education-kids-2181c',
+    authDomain: 'education-kids-2181c.firebaseapp.com',
+    databaseURL: 'https://education-kids-2181c-default-rtdb.firebaseio.com',
+    storageBucket: 'education-kids-2181c.appspot.com',
+    measurementId: 'G-Y77Z3PP0WX',
   );
 
 }
