@@ -52,9 +52,9 @@ class _PuzzleGameViewBodyState extends State<PuzzleGameViewBody> {
         await FirebaseFirestore.instance.collection(kcolliction).get();
     if (snapshot.docs.isNotEmpty) {
       print("Data is saved in the cloud.");
-      snapshot.docs.forEach((doc) {
+      for (var doc in snapshot.docs) {
         print(doc.data());
-      });
+      }
     } else {
       print("No data is saved in the cloud.");
     }

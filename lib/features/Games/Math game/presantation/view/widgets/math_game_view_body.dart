@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:math_expressions/math_expressions.dart';
+import '../../../../../bluetooth/bluetooth_manager.dart';
 import '../../../../../in side app/Challenges/presantation/view/Games_view.dart';
 import '../../../../puzzle_games/presantation/view/widgets/custom_appbar.dart';
 import '../math_game_view.dart';
@@ -105,9 +106,9 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                 onPressed: () {
                   if (isGamePassed()) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Level Passed!')),
+                      const SnackBar(content: Text('Level Passed')),
                     );
-                    // Navigate to GamesView
+                    connectToDevice(); // Ensure this is awaited if necessary
                     Navigator.pushReplacementNamed(
                         context, GamesView.gamesviewid);
                   } else {
