@@ -1,41 +1,17 @@
+import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+void sendMessageToRobot(String message) async {
+  var url = Uri.parse('http://192.168.1.2:5000/print_message');
+  var response = await http.post(
+    url,
+    headers: {"Content-Type": "application/json"},
+    body: json.encode({"message": message}),
+  );
 
-final FlutterBluePlus flutterBlue = FlutterBluePlus();
-BluetoothDevice? device;
-BluetoothCharacteristic? characteristic;
-
-Future<void> connectToDevice() async {
-  print('Attempting to connect to device...'); // Added log
-  final devices = FlutterBluePlus.connectedDevices;
-  if (devices.isNotEmpty) {
-    device = devices.first;
-    final services = await device!.discoverServices();
-    for (final service in services) {
-      String? serviceUuid = service.uuid.toString();
-      print('Service UUID: $serviceUuid'); // Added log
-      final characteristics = service.characteristics;
-      for (final char in characteristics) {
-        String? characteristicUuid = char.uuid.toString();
-        print('Characteristic UUID: $characteristicUuid'); // Added log
-        characteristic = char;
-        break;
-      }
-      break;
-    }
+  if (response.statusCode == 200) {
+    print('Message sent successfully to the robot');
   } else {
-    print("No devices connected."); // Added log
-  }
-}
-
-Future<void> sendMessageToPC(String message) async {
-  if (device != null && characteristic != null) {
-    await characteristic!.write(utf8.encode(message));
-  } else {
-    if (kDebugMode) {
-      print("Device or characteristic not found.");
-    }
+    print('Failed to send message to the robot');
   }
 }

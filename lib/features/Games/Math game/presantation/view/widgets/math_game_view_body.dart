@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:math_expressions/math_expressions.dart';
 import '../../../../../bluetooth/bluetooth_manager.dart';
-import '../../../../../in side app/Challenges/presantation/view/Games_view.dart';
+import '../../../../../in side app/Challenges/presantation/view/games_view.dart';
 import '../../../../puzzle_games/presantation/view/widgets/custom_appbar.dart';
 import '../math_game_view.dart';
 import 'custom_math_table.dart';
@@ -108,7 +108,8 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Level Passed')),
                     );
-                    connectToDevice(); // Ensure this is awaited if necessary
+                    //todo checkBluetoothConnectivity(); // Ensure this is awaited if necessary
+                    sendMessageToRobot("wal3 eldonia");
                     Navigator.pushReplacementNamed(
                         context, GamesView.gamesviewid);
                   } else {

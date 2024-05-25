@@ -25,7 +25,7 @@ class _CustomNavigateBarState extends State<CustomNavigateBar> {
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
           indicatorColor: Colors.blue.shade100,
-          labelTextStyle: const MaterialStatePropertyAll(
+          labelTextStyle: const WidgetStatePropertyAll(
             TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,
