@@ -40,4 +40,29 @@ We warmly invite contributions from the community to enrich **Learnopia**. Wheth
 
 ---
 
+## Advanced Features
+
+### Tables 📊
+
+Here's a table showcasing some of the key features of Learnopia:
+
+| Feature | Description |
+|---------|-------------|
+| Matching Games | Engaging activities to match objects and symbols. |
+| Quizzes | Adaptive quizzes covering a variety of subjects. |
+| Math Games | Skill-building exercises from basic arithmetic to complex problems. |
+| Robot Integration | Real-time feedback and personalized experiences. |
+
+### Mathematical Expressions 🧮
+
+Learnopia makes learning math fun with interactive visualizations. For instance, solving quadratic equations becomes a game:
+
+\[ax^2 + bx + c = 0\]
+
+### Links 🌐
+
+Want to know more about our team or join us? Visit our website: [Learnopia Website](http://www.learnopia.com)
+
+---
+
 Thank you for choosing **Learnopia**. Together, let's turn education into an exciting adventure!
