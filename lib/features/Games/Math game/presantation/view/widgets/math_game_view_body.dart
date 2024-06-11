@@ -103,22 +103,23 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                 icon: const Icon(FontAwesomeIcons
                     .arrowRight), // Use FontAwesome icon for Next
                 label: const Text('Next'),
-                onPressed: () {
+                // Inside the onPressed callback of the 'Next' button
+                onPressed: () async {
                   if (isGamePassed()) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Level Passed')),
                     );
-                    //todo checkBluetoothConnectivity(); // Ensure this is awaited if necessary
-                    sendMessageToRobot("wal3 eldonia");
+                    sendMessageToRobot("Game_Passed");
                     Navigator.pushReplacementNamed(
                         context, GamesView.gamesviewid);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Text('Try Again!'),
+                        content: Text('Try Again'),
                       ),
                     );
-                    // Navigate to the MathGameView immediately
+                    sendMessageToRobot("Game_Failed");
+
                     Navigator.pushReplacementNamed(
                         context, MathGameView.mathgameid);
                   }
