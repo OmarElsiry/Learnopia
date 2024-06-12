@@ -2,11 +2,17 @@ import 'package:educational_kids_game/features/Games/Math%20game/presantation/vi
 import 'package:flutter/material.dart';
 
 // In math_game_view.dart
-
 class MathGameView extends StatelessWidget {
   final int correctAnswer;
+  final List<String> numbers; // Add this line
+  final List<String> operators; // And this line
 
-  const MathGameView({Key? key, required this.correctAnswer}) : super(key: key);
+  const MathGameView({
+    Key? key,
+    required this.correctAnswer,
+    required this.numbers, // Add this line
+    required this.operators, // And this line
+  }) : super(key: key);
 
   static String mathgameid = 'math game';
 
@@ -14,7 +20,10 @@ class MathGameView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: MathGameViewBody(
-          correctAnswer: correctAnswer), // Pass correctAnswer here
+        correctAnswer: correctAnswer,
+        numbers: ['4', '7', '2', '6', '1', '3'],
+        operators: ['+', '-', '*'],
+      ),
     );
   }
 }

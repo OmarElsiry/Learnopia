@@ -9,7 +9,7 @@ class LevelSelectionPage extends StatelessWidget {
     "Group1": [
       {"name": "Beep Beep Horse.png", "positionX": 0.15, "nav to": 10},
       {"name": "Dayflow Black Cat.png", "positionX": 0.25, "nav to": 12},
-      {"name": "Ellipse 1.png", "positionX": 0.2, "nav to": 14},
+      {"name": "Ellipse 1.png", "positionX": 0.2, "nav to": 7},
       {"name": "Dayflow Black Cat.png", "positionX": 0.18, "nav to": 15},
       {"name": "Beep Beep Horse.png", "positionX": 0.5, "nav to": 18},
     ],
@@ -23,7 +23,7 @@ class LevelSelectionPage extends StatelessWidget {
 
     return Stack(
       children: [
-        SvgPicture.asset('assets/images/levels_map.svg', fit: BoxFit.cover),
+        SvgPicture.asset('assets/images/55.svg', fit: BoxFit.cover),
         ...List.generate(numberOfLogos, (index) {
           var logoInfo = levels["Group1"]![index];
           double verticalSpacing = (screenHeight / numberOfLogos);
@@ -37,8 +37,11 @@ class LevelSelectionPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        MathGameView(correctAnswer: logoInfo["nav to"]),
+                    builder: (context) => MathGameView(
+                      correctAnswer: logoInfo["nav to"],
+                      numbers: const ['4', '7', '2', '6', '1', '3'],
+                      operators: const ['+', '-', '*'],
+                    ),
                   ),
                 );
               },

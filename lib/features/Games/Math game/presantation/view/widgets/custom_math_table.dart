@@ -101,6 +101,4 @@ class _CustomMathTableState extends State<CustomMathTable> {
       },
     );
   }
-
- 
 }

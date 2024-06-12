@@ -9,8 +9,15 @@ import 'custom_math_table.dart';
 
 class MathGameViewBody extends StatefulWidget {
   final int correctAnswer;
+  final List<String> numbers;
+  final List<String> operators;
 
-  const MathGameViewBody({super.key, required this.correctAnswer});
+  const MathGameViewBody({
+    super.key,
+    required this.correctAnswer,
+    required this.numbers,
+    required this.operators,
+  });
 
   @override
   _MathGameViewBodyState createState() => _MathGameViewBodyState();
@@ -30,9 +37,6 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    final numbers = ['1', '2', '3', '4', '5', '6'];
-    final operators = ['+', '-', '*'];
-
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -41,9 +45,9 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
             color: Colors.black,
           ),
           const SizedBox(height: 25),
-          const Text(
-            'Answer the question',
-            style: TextStyle(fontSize: 24),
+          Text(
+            'ًWhat equalls $correctAnswer',
+            style: const TextStyle(fontSize: 24),
           ),
           const SizedBox(height: 25),
           LayoutBuilder(
@@ -56,8 +60,8 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                   color: Colors.white.withOpacity(.5),
                 ),
                 child: CustomMathTable(
-                  numbers: numbers,
-                  operators: operators.sublist(0, 3),
+                  numbers: widget.numbers,
+                  operators: widget.operators.sublist(0, 3),
                   textColor: Colors.black,
                   buttonColor: Colors.white,
                   pressedColor: const Color(0xffa881af).withOpacity(0.8),
@@ -106,8 +110,11 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            MathGameView(correctAnswer: this.correctAnswer)),
+                        builder: (context) => MathGameView(
+                              correctAnswer: correctAnswer,
+                              operators: widget.operators,
+                              numbers: widget.numbers,
+                            )),
                   );
                 },
               ),
@@ -134,8 +141,11 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              MathGameView(correctAnswer: this.correctAnswer)),
+                          builder: (context) => MathGameView(
+                                correctAnswer: correctAnswer,
+                                operators: widget.operators,
+                                numbers: widget.numbers,
+                              )),
                     );
                   }
                 },
