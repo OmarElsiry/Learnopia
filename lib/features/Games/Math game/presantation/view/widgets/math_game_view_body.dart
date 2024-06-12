@@ -8,17 +8,25 @@ import '../math_game_view.dart';
 import 'custom_math_table.dart';
 
 class MathGameViewBody extends StatefulWidget {
-  const MathGameViewBody({super.key});
+  final int correctAnswer;
+
+  const MathGameViewBody({super.key, required this.correctAnswer});
 
   @override
   _MathGameViewBodyState createState() => _MathGameViewBodyState();
 }
 
 class _MathGameViewBodyState extends State<MathGameViewBody> {
+  late int correctAnswer; // Declare correctAnswer without initializing
   List<String> pressedItems = ['', '', ''];
   int lastPressedColumn =
       0; // 0 for the first column, 1 for the second, and 2 for the third
-  final int correctAnswer = 10; // Correct answer
+
+  @override
+  void initState() {
+    super.initState();
+    correctAnswer = widget.correctAnswer; // Initialize correctAnswer here
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,8 +103,12 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                     .restart_alt_rounded), // Use FontAwesome icon for Retry
                 label: const Text('Reset'),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(
-                      context, MathGameView.mathgameid);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            MathGameView(correctAnswer: this.correctAnswer)),
+                  );
                 },
               ),
               ElevatedButton.icon(
@@ -119,8 +131,12 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                     );
                     sendMessageToRobot("Game_Failed");
 
-                    Navigator.pushReplacementNamed(
-                        context, MathGameView.mathgameid);
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              MathGameView(correctAnswer: this.correctAnswer)),
+                    );
                   }
                 },
               ),

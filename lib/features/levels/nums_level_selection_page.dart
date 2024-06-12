@@ -7,31 +7,11 @@ class LevelSelectionPage extends StatelessWidget {
 
   final Map<String, List<Map<String, dynamic>>> levels = {
     "Group1": [
-      {
-        "name": "Beep Beep Horse.png",
-        "positionX": 0.15,
-        "nav to": MathGameView.mathgameid
-      },
-      {
-        "name": "Dayflow Black Cat.png",
-        "positionX": 0.25,
-        "nav to": MathGameView.mathgameid
-      },
-      {
-        "name": "Ellipse 1.png",
-        "positionX": 0.2,
-        "nav to": MathGameView.mathgameid
-      },
-      {
-        "name": "Dayflow Black Cat.png",
-        "positionX": 0.18,
-        "nav to": 'MathGameView.mathgameid'
-      },
-      {
-        "name": "Beep Beep Horse.png",
-        "positionX": 0.5,
-        "nav to": MathGameView.mathgameid
-      },
+      {"name": "Beep Beep Horse.png", "positionX": 0.15, "nav to": 10},
+      {"name": "Dayflow Black Cat.png", "positionX": 0.25, "nav to": 12},
+      {"name": "Ellipse 1.png", "positionX": 0.2, "nav to": 14},
+      {"name": "Dayflow Black Cat.png", "positionX": 0.18, "nav to": 15},
+      {"name": "Beep Beep Horse.png", "positionX": 0.5, "nav to": 18},
     ],
     // Add more groups with levels here
   };
@@ -53,7 +33,14 @@ class LevelSelectionPage extends StatelessWidget {
             top: verticalSpacing * index,
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, MathGameView.mathgameid);
+                var logoInfo = levels["Group1"]![index];
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        MathGameView(correctAnswer: logoInfo["nav to"]),
+                  ),
+                );
               },
               child: Transform.scale(
                 // Scale down the logo
