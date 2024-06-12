@@ -9,6 +9,7 @@ import 'package:educational_kids_game/features/in%20side%20app/unit%20math/presa
 import 'package:educational_kids_game/features/navigation_bar_view.dart';
 import 'package:educational_kids_game/features/settings/presantation/view/settings_view.dart';
 import '../../features/Games/puzzle_games/presantation/view/puzzle_game_view.dart';
+import '../../features/levels/nums_level_selection_page.dart';
 import '../../features/settings/presantation/view/password_settings_view.dart';
 
 abstract class Approutes {
@@ -22,8 +23,9 @@ abstract class Approutes {
     GamesView.gamesviewid: (context) => const GamesView(),
     UnitMathView.unitmathid: (context) => const UnitMathView(),
     PuzzleGameView.puzzlegameid: (context) => const PuzzleGameView(),
-    MathGameView.mathgameid: (context) => const MathGameView(),
+    MathGameView.mathgameid: (context) => MathGameView(),
     PasswordSettingsView.settingsid: (context) => const PasswordSettingsView(),
     SettingsView.settingsviewid: (context) => const SettingsView(),
+    LevelSelectionPage.numsRouteNameId: (context) => LevelSelectionPage(),
   };
 }

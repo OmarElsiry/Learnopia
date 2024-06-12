@@ -110,8 +110,7 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                       const SnackBar(content: Text('Level Passed')),
                     );
                     sendMessageToRobot("Game_Passed");
-                    Navigator.pushReplacementNamed(
-                        context, GamesView.gamesviewid);
+                    Navigator.pop(context, GamesView.gamesviewid);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
