@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:educational_kids_game/features/Games/Math%20game/presantation/view/math_game_view.dart';
 
-class LevelSelectionPage extends StatelessWidget {
+class NumsLevelSelectionPage extends StatelessWidget {
   static String numsRouteNameId = 'nums level selection page';
 
   final Map<String, List<Map<String, dynamic>>> levels = {
@@ -15,6 +15,8 @@ class LevelSelectionPage extends StatelessWidget {
     ],
     // Add more groups with levels here
   };
+
+  NumsLevelSelectionPage({super.key});
 
   @override
   Widget build(BuildContext context) {

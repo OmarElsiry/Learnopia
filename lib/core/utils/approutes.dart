@@ -7,8 +7,9 @@ import 'package:educational_kids_game/features/in%20side%20app/kid%20profile/pre
 import 'package:educational_kids_game/features/in%20side%20app/unit%20math/presantation/view/unit_math_view.dart';
 import 'package:educational_kids_game/features/navigation_bar_view.dart';
 import 'package:educational_kids_game/features/settings/presantation/view/settings_view.dart';
-import '../../features/Games/puzzle_games/presantation/view/puzzle_game_view.dart';
 import '../../features/levels/nums_level_selection_page.dart';
+import '../../features/levels/puzzle_level_selection_page.dart';
+import '../../features/pronounce/prounounciation_view.dart';
 import '../../features/settings/presantation/view/password_settings_view.dart';
 
 abstract class Approutes {
@@ -21,9 +22,12 @@ abstract class Approutes {
     KidProfileView.kidprofileid: (context) => const KidProfileView(),
     GamesView.gamesviewid: (context) => const GamesView(),
     UnitMathView.unitmathid: (context) => const UnitMathView(),
-    PuzzleGameView.puzzlegameid: (context) => const PuzzleGameView(),
     PasswordSettingsView.settingsid: (context) => const PasswordSettingsView(),
     SettingsView.settingsviewid: (context) => const SettingsView(),
-    LevelSelectionPage.numsRouteNameId: (context) => LevelSelectionPage(),
+    ProunounceView.prounounceViewid: (context) => const ProunounceView(),
+    NumsLevelSelectionPage.numsRouteNameId: (context) =>
+        NumsLevelSelectionPage(),
+    PuzzleLevelSelectionPage.puzzleRouteNameId: (context) =>
+        PuzzleLevelSelectionPage(),
   };
 }

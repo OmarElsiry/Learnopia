@@ -1,8 +1,8 @@
-import 'package:educational_kids_game/features/Games/puzzle_games/presantation/view/puzzle_game_view.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Challenges/presantation/view/widgets/custom_appbar_games.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Challenges/presantation/view/widgets/custom_container_view.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Challenges/presantation/view/widgets/lion_view.dart';
 import 'package:educational_kids_game/features/levels/nums_level_selection_page.dart';
+import 'package:educational_kids_game/features/levels/puzzle_level_selection_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -31,7 +31,7 @@ class GamesViewBody extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(
-                      context, LevelSelectionPage.numsRouteNameId);
+                      context, NumsLevelSelectionPage.numsRouteNameId);
                 },
                 child: const CustomContainerview(
                   color: Color(0xff4EE292),
@@ -58,7 +58,8 @@ class GamesViewBody extends StatelessWidget {
             children: [
               CustomContainerview(
                 ontap: () {
-                  Navigator.pushNamed(context, PuzzleGameView.puzzlegameid);
+                  Navigator.pushNamed(
+                      context, PuzzleLevelSelectionPage.puzzleRouteNameId);
                 },
                 color: const Color(0xff0074FF),
                 image: 'assets/images/Puzzle.png',

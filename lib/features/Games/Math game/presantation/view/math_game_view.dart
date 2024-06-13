@@ -8,11 +8,11 @@ class MathGameView extends StatelessWidget {
   final List<String> operators; // And this line
 
   const MathGameView({
-    Key? key,
+    super.key,
     required this.correctAnswer,
     required this.numbers, // Add this line
     required this.operators, // And this line
-  }) : super(key: key);
+  });
 
   static String mathgameid = 'math game';
 
@@ -21,8 +21,8 @@ class MathGameView extends StatelessWidget {
     return Scaffold(
       body: MathGameViewBody(
         correctAnswer: correctAnswer,
-        numbers: ['4', '7', '2', '6', '1', '3'],
-        operators: ['+', '-', '*'],
+        numbers: const ['4', '7', '2', '6', '1', '3'],
+        operators: const ['+', '-', '*'],
       ),
     );
   }

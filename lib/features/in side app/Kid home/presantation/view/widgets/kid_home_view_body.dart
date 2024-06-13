@@ -1,5 +1,4 @@
 import 'package:educational_kids_game/core/utils/assets.dart';
-import 'package:educational_kids_game/features/auth_features/sign_in/presantation/views/widgets/custom_appbar.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/widgets/custom_row_icon.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/widgets/custom_search.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/widgets/custom_view_container.dart';
@@ -8,17 +7,19 @@ import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presan
 import 'package:educational_kids_game/features/in%20side%20app/unit%20math/presantation/view/unit_math_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../pronounce/prounounciation_view.dart';
+
 class KidHomeViewBody extends StatelessWidget {
   const KidHomeViewBody({super.key});
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width * 0.02;
-    final height = MediaQuery.of(context).size.height * 0.05;
+    final mediaQueryData = MediaQuery.of(context);
+    final width = mediaQueryData.size.width * 0.02;
+    final height = mediaQueryData.size.height * 0.05;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const CustomAppbar2(),
             Image.asset(AssetsData.kidHome),
             const SizedBox(
               height: 15,
@@ -91,6 +92,10 @@ class KidHomeViewBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomViewContainer(
+                    ontap: () {
+                      Navigator.pushNamed(
+                          context, ProunounceView.prounounceViewid);
+                    },
                     color: const Color(0xff4EE292).withOpacity(0.6),
                     title: 'art',
                   ),

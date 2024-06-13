@@ -40,11 +40,14 @@ class _NavigateBarState extends State<NavigateBar> {
 
   @override
   Widget build(BuildContext context) {
+    var mediaquerydata = MediaQuery.of(context);
     // Calculate the available height for the content
-    double availableHeight = MediaQuery.of(context).size.height -
-        MediaQuery.of(context).viewInsets.bottom;
+    double availableHeight =
+        mediaquerydata.size.height - mediaquerydata.viewInsets.bottom;
 
-    double iconSize = MediaQuery.of(context).size.width < 600 ? 25 : 32;
+    double screenWidthPercentage =
+        mediaquerydata.size.width > 600 ? 0.20 : 0.06;
+    double iconSize = screenWidthPercentage * mediaquerydata.size.width;
     return Scaffold(
       body: Stack(
         children: [
@@ -62,10 +65,10 @@ class _NavigateBarState extends State<NavigateBar> {
             child: Padding(
               // Adds padding at the bottom to account for the keyboard space
               padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom +
+                  bottom: mediaquerydata.viewInsets.bottom +
                       5), // Adjust the padding here
               child: SizedBox(
-                height: availableHeight * 0.13,
+                height: availableHeight * 0.161,
                 width: double.infinity,
                 child: DotNavigationBar(
                   backgroundColor:

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
 
+import '../puzzle_game_view.dart';
+
 int levelcount = 1;
 
 class ViewOtp extends StatefulWidget {
-  const ViewOtp({super.key});
+  final String correctAnswer;
+  final String imageName;
+
+  const ViewOtp(
+      {super.key, required this.correctAnswer, required this.imageName});
 
   @override
   State<ViewOtp> createState() => _ViewOtpState();
@@ -13,6 +19,8 @@ class ViewOtp extends StatefulWidget {
 class _ViewOtpState extends State<ViewOtp> {
   final _otpPinFieldController = GlobalKey<OtpPinFieldState>();
   bool success = false;
+  String userInput = '';
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,60 +30,23 @@ class _ViewOtpState extends State<ViewOtp> {
           key: _otpPinFieldController,
           autoFillEnable: false,
           textInputAction: TextInputAction.done,
-          onSubmit: (data) {
-            if (data == "lion" ||
-                data == "Bear" ||
-                data == "Wolf" ||
-                data == 'Duck') {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Success! You entered "$data".')),
-              );
-              setState(() {
-                success = true;
-                levelcount += 1;
-              });
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Fauiler please try again!'),
-                ),
-              );
-              setState(() {
-                success = false;
-              });
-            }
+          onChange: (text) {
+            setState(() {
+              userInput = text; // Update userInput on change
+            });
           },
-          onChange: (text) {},
-
-          /// to decorate your Otp_Pin_Field
+          onSubmit:
+              (value) {}, // Placeholder function to satisfy the requirement
           otpPinFieldStyle: OtpPinFieldStyle(
-            /// border color for inactive/unfocused Otp_Pin_Field
-            defaultFieldBorderColor:
-                success == true ? Colors.green : Colors.red,
-
-            /// border color for active/focused Otp_Pin_Field
+            defaultFieldBorderColor: success ? Colors.green : Colors.red,
             activeFieldBorderColor: Colors.indigo,
-
-            /// Background Color for inactive/unfocused Otp_Pin_Field
             defaultFieldBackgroundColor: Colors.yellow,
-
-            /// Background Color for active/focused Otp_Pin_Field
             activeFieldBackgroundColor: Colors.cyanAccent,
-
-            /// Background Color for filled field pin box
             filledFieldBackgroundColor: Colors.green,
-
-            // filledFieldBorderColor: Colors.red,
           ),
           maxLength: 4,
-
-          /// no of pin field
           showCursor: true,
-
-          /// bool to show cursor in pin field or not
           cursorColor: Colors.indigo,
-
-          /// to choose cursor color
           upperChild: const Column(
             children: [
               SizedBox(height: 30),
@@ -83,7 +54,55 @@ class _ViewOtpState extends State<ViewOtp> {
               SizedBox(height: 20),
             ],
           ),
-        )
+        ),
+        Container(
+          width: 324,
+          height: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: const Color(0xffF55454),
+          ),
+          child: TextButton(
+            onPressed: () {
+              if (userInput == widget.correctAnswer) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Success You entered "$userInput".'),
+                  ),
+                );
+                setState(() {
+                  success = true;
+                  levelcount += 1;
+                  Navigator.pop(context); // Navigates back when successful
+                });
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Fauiler please try again')),
+                );
+                setState(() {
+                  success = false;
+                  // Assuming you want to navigate to a new PuzzleGameView with the same correctAnswer if the input is wrong
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PuzzleGameView(
+                        correctAnswer: widget.correctAnswer,
+                        imageName:
+                            widget.imageName, // Using the same correctAnswer
+                      ),
+                    ),
+                  );
+                });
+              }
+            },
+            child: const Center(
+              child: Text(
+                'Next',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
