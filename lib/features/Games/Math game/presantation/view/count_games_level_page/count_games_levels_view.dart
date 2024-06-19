@@ -69,8 +69,11 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 0
                     ? const Color(0xFFB4F8C8)
                     : Colors.grey,
+                txtcolor: Colors.white, // Example text color
+                starColor: Levels.levelsPassedCount >= 1
+                    ? const Color(0xffCA9719)
+                    : const Color(0xFF808080),
                 text: '1',
-                txtcolor: const Color(0xff18B74B),
               ),
             ),
             GestureDetector(
@@ -92,8 +95,12 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 1
                     ? const Color(0xFFA0E7E5)
                     : Colors.grey,
+                txtcolor: Colors.white, // Example text color
+                starColor: Levels.levelsPassedCount >= 1
+                    ? const Color(0xff199EC2)
+                    : const Color(
+                        0xffCA9719), // Dynamic star color based on your specification
                 text: '2',
-                txtcolor: const Color(0xff199EC2),
               ),
             ),
             GestureDetector(
@@ -115,8 +122,12 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 2
                     ? const Color(0xFFFFAEBC)
                     : Colors.grey,
+                txtcolor: Colors.white, // Example text color
+                starColor: Levels.levelsPassedCount >= 2
+                    ? const Color(0xff18B74B)
+                    : const Color(
+                        0xffC55C6C), // Dynamic star color based on your specification
                 text: '3',
-                txtcolor: const Color(0xffC55C6C),
               ),
             ),
             GestureDetector(
@@ -138,8 +149,12 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 3
                     ? const Color(0xFFFBE7C6)
                     : Colors.grey,
+                txtcolor: Colors.white, // Example text color
+                starColor: Levels.levelsPassedCount >= 3
+                    ? const Color(0xff199EC2)
+                    : const Color(
+                        0xffCA9719), // Dynamic star color based on your specification
                 text: '4',
-                txtcolor: const Color(0xffCA9719),
               ),
             ),
             GestureDetector(
@@ -161,8 +176,12 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 4
                     ? const Color(0xFFB4F8C8)
                     : Colors.grey,
+                txtcolor: Colors.white, // Example text color
+                starColor: Levels.levelsPassedCount >= 4
+                    ? const Color(0xffCA9719)
+                    : const Color(
+                        0xff18B74B), // Dynamic star color based on your specification
                 text: '5',
-                txtcolor: const Color(0xff18B74B),
               ),
             ),
             GestureDetector(
@@ -184,8 +203,12 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 5
                     ? const Color(0xFFA0E7E5)
                     : Colors.grey,
+                txtcolor: Colors.white, // Example text color
+                starColor: Levels.levelsPassedCount >= 5
+                    ? const Color(0xff18B74B)
+                    : const Color(
+                        0xff199EC2), // Dynamic star color based on your specification
                 text: '6',
-                txtcolor: const Color(0xff199EC2),
               ),
             ),
             GestureDetector(
@@ -207,8 +230,12 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 6
                     ? const Color(0xFFFFAEBC)
                     : Colors.grey,
+                txtcolor: Colors.white, // Example text color
+                starColor: Levels.levelsPassedCount >= 6
+                    ? const Color(0xffCA9719)
+                    : const Color(
+                        0xffC55C6C), // Dynamic star color based on your specification
                 text: '7',
-                txtcolor: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
             GestureDetector(
@@ -230,8 +257,12 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 7
                     ? const Color(0xFFFBE7C6)
                     : Colors.grey,
+                txtcolor: Colors.white, // Example text color
+                starColor: Levels.levelsPassedCount >= 7
+                    ? const Color(0xff199EC2)
+                    : const Color(
+                        0xff18B74B), // Dynamic star color based on your specification
                 text: '8',
-                txtcolor: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
           ],
@@ -243,14 +274,16 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
 
 class ColoredContainer extends StatelessWidget {
   final Color color;
-  final Color txtcolor;
-  final String text; // Existing property for the text
+  final Color txtcolor; // This remains the same
+  final Color starColor; // New parameter for star icon color
+  final String text;
 
   const ColoredContainer({
     Key? key,
     required this.color,
     required this.txtcolor,
-    required this.text, // Constructor now requires the text
+    required this.starColor, // Make this required
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -273,11 +306,11 @@ class ColoredContainer extends StatelessWidget {
               Text(
                 text,
                 style: TextStyle(
-                  fontFamily: 'Poppins', // Ensure you have this font imported
+                  fontFamily: 'Poppins',
                   fontStyle: FontStyle.normal,
                   fontWeight: FontWeight.w700,
                   fontSize: 48,
-                  color: txtcolor, // Hex color value converted to Flutter
+                  color: txtcolor,
                   shadows: [
                     Shadow(
                       offset: const Offset(0, 4),
@@ -287,9 +320,9 @@ class ColoredContainer extends StatelessWidget {
                   ],
                 ),
               ),
-              const Icon(
+              Icon(
                 Icons.star,
-                color: Color(0xffFFD700),
+                color: starColor, // Use the dynamic starColor here
                 size: 28,
               ),
             ],

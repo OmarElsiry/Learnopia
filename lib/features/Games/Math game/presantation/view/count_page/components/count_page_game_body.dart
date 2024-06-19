@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../../core/utils/levels_passed.dart';
@@ -50,34 +51,19 @@ class CountPageViewbody extends StatelessWidget {
             height: screenheight * 0.15,
             color: const Color(0xffFBDAB1),
             child: const Center(
-              child: Text(
-                "Math is Fun!",
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 48, // Adjusted font size
-                  color: Color(0xffEE8B60), // Adjusted color
-                ),
-              ),
-            ),
+                child: CustomText(
+              text: "Math Is Fun!",
+              fontSize: 41,
+              color: Color(0xffEE8B60),
+            )),
           ),
           SvgPicture.asset('assets/images/5bears.svg'),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              quizQuestion,
-              textAlign: TextAlign.center, // Center align text
-              style: const TextStyle(
-                fontFamily: 'Poppins',
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w700,
-                fontSize: 30, // Adjusted font size
-                color: Color(0xffEE8B60), // Adjusted color
-                height: 1.5, // Approximate line height, adjust as needed
-              ),
-            ),
-          ),
+              padding: const EdgeInsets.all(8.0),
+              child: CustomText(
+                  text: quizQuestion,
+                  color: const Color(0xffEE8B60),
+                  fontSize: 36)),
           for (int i = 0; i < rectangleValues.length; i += 2)
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,6 +106,42 @@ class CountPageViewbody extends StatelessWidget {
             ),
         ],
       ),
+    );
+  }
+}
+
+class CustomText extends StatelessWidget {
+  final String text;
+  final double fontSize; // Default fontSize
+  final String fontFamily; // Default fontFamily
+  final FontStyle fontStyle; // Default fontStyle
+  final FontWeight fontWeight; // Default fontWeight
+  final Color color; // Default color
+
+  const CustomText({
+    Key? key,
+    required this.text,
+    this.fontSize = 48, // Default fontSize
+    this.fontFamily = 'Poppins', // Default fontFamily
+    this.fontStyle = FontStyle.normal, // Default fontStyle
+    this.fontWeight = FontWeight.w700, // Default fontWeight
+    this.color = const Color(0xffEE8B60), // Default color
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Construct the TextStyle with the provided and default values
+    TextStyle textStyle = TextStyle(
+      fontSize: fontSize,
+      fontFamily: fontFamily,
+      fontStyle: fontStyle,
+      fontWeight: fontWeight,
+      color: color,
+    );
+
+    return Text(
+      text,
+      style: textStyle,
     );
   }
 }
