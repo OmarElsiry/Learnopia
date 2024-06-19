@@ -68,9 +68,17 @@ class _ShowNumSectionState extends State<ShowNumSection> {
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                     child: ShowNum(
-                      num: '4',
-                      onSelected: (bool value) => onSelected('4', value),
-                      selected: selectedNums.contains('4'),
+                      num: '1',
+                      onSelected: (bool value) => onSelected('1', value),
+                      selected: selectedNums.contains('1'),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0, top: 8.0),
+                    child: ShowNum(
+                      num: '2',
+                      onSelected: (bool value) => onSelected('2', value),
+                      selected: selectedNums.contains('2'),
                     ),
                   ),
                   Padding(
@@ -81,14 +89,6 @@ class _ShowNumSectionState extends State<ShowNumSection> {
                       selected: selectedNums.contains('3'),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                    child: ShowNum(
-                      num: '7',
-                      onSelected: (bool value) => onSelected('7', value),
-                      selected: selectedNums.contains('7'),
-                    ),
-                  ),
                 ],
               ),
               TableRow(
@@ -96,9 +96,9 @@ class _ShowNumSectionState extends State<ShowNumSection> {
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                     child: ShowNum(
-                      num: '2',
-                      onSelected: (bool value) => onSelected('2', value),
-                      selected: selectedNums.contains('2'),
+                      num: '4',
+                      onSelected: (bool value) => onSelected('4', value),
+                      selected: selectedNums.contains('4'),
                     ),
                   ),
                   Padding(

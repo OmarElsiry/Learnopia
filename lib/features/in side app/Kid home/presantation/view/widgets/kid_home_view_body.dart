@@ -30,7 +30,7 @@ class KidHomeViewBody extends StatelessWidget {
               child: Column(
                 children: [
                   const Text(
-                    'Ready to play?',
+                    'New Event, Play?',
                     style: TextStyle(fontSize: 24),
                   ),
                   Text(

@@ -1,10 +1,10 @@
 import 'package:educational_kids_game/features/in%20side%20app/Challenges/presantation/view/widgets/custom_appbar_games.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Challenges/presantation/view/widgets/custom_container_view.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Challenges/presantation/view/widgets/lion_view.dart';
-import 'package:educational_kids_game/features/levels/nums_level_selection_page.dart';
 import 'package:educational_kids_game/features/levels/puzzle_level_selection_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import '../../../../../pronounce/prounounciation_view.dart';
+import 'package:educational_kids_game/features/Games/Math game/presantation/view/math_games_view.dart';
 
 class GamesViewBody extends StatelessWidget {
   const GamesViewBody({super.key});
@@ -30,8 +30,12 @@ class GamesViewBody extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(
-                      context, NumsLevelSelectionPage.numsRouteNameId);
+                  // Navigator.pushNamed(
+                  //     context, NumsLevelSelectionPage.numsRouteNameId);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MathGameView()));
                 },
                 child: const CustomContainerview(
                   color: Color(0xff4EE292),
@@ -41,12 +45,15 @@ class GamesViewBody extends StatelessWidget {
                   subtitlt: 'All about numbers',
                 ),
               ),
-              const CustomContainerview(
-                color: Color(0xffF55454),
+              CustomContainerview(
+                color: const Color(0xffF55454),
                 image: 'assets/images/Book Read.png',
-                titlt: 'Reading',
-                colortitle: Color(0xffF55454),
+                titlt: 'Spelling',
+                colortitle: const Color(0xffF55454),
                 subtitlt: 'Reading some word',
+                ontap: () {
+                  Navigator.pushNamed(context, ProunounceView.prounounceViewid);
+                },
               ),
             ],
           ),
