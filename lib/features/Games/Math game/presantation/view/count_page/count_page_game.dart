@@ -6,19 +6,20 @@ class CountPageView extends StatelessWidget {
   final List<String> rectangleValues;
   final String quizQuestion;
   final List<Color> buttonColors;
-
-  const CountPageView({
-    Key? key,
-    required this.correctAnswer,
-    required this.rectangleValues,
-    required this.quizQuestion,
-    this.buttonColors = const [
-      Color(0xFFFBE7C6), // Light Peach
-      Color(0xFFFFAEBC), // Light Coral Pink
-      Color(0xFFA0E7E5), // Light Teal
-      Color(0xFFB4F8C8), // Light Mint Green
-    ],
-  }) : super(key: key);
+final String levelId;
+ const CountPageView({
+     Key? key,
+     required this.correctAnswer,
+     required this.rectangleValues,
+     required this.quizQuestion,
+     this.buttonColors = const [
+       Color(0xFFFBE7C6), // Light Peach
+       Color(0xFFFFAEBC), // Light Coral Pink
+       Color(0xFFA0E7E5), // Light Teal
+       Color(0xFFB4F8C8), // Light Mint Green
+     ],
+     required this.levelId,
+ });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class CountPageView extends StatelessWidget {
         correctAnswer: correctAnswer,
         rectangleValues: rectangleValues,
         buttonColors: mutableButtonColors,
-        quizQuestion: quizQuestion,
+        quizQuestion: quizQuestion, levelId: levelId,
       ),
     );
   }

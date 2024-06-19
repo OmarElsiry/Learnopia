@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../../core/utils/levels_passed.dart';
 import '../count_page/count_page_game.dart';
 import 'count_game_levels_passed_values.dart';
 
@@ -10,21 +11,21 @@ class CountGamesLevelView extends StatefulWidget {
 }
 
 class _CountGamesLevelViewState extends State<CountGamesLevelView> {
-  Route _createRoute(
-      String correctAnswer, List<String> rectangleValues, String quizQuestion) {
+  Route _createRoute(String correctAnswer, List<String> rectangleValues,
+      String quizQuestion, String levelId) {
     return MaterialPageRoute(
       builder: (context) => CountPageView(
         correctAnswer: correctAnswer,
         rectangleValues: rectangleValues,
         quizQuestion: quizQuestion,
+        levelId: levelId,
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final Size mediaquerydata =
-        MediaQuery.sizeOf(context); // Calculate one-third of the screen height
+    final Size mediaquerydata = MediaQuery.sizeOf(context);
     final num height = mediaquerydata.height;
     return Scaffold(
       appBar: PreferredSize(
@@ -50,108 +51,187 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
           mainAxisSpacing: 24, // Add this line to set spacing between rows
           children: [
             GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  _createRoute(
+              onTap: () {
+                if (Levels.levelsPassedCount >= 0) {
+                  // Adjust the condition as needed
+                  Navigator.push(
+                    context,
+                    _createRoute(
                       LevelConstructor.firstLevelConstructor().correctAnswer,
                       LevelConstructor.firstLevelConstructor().rectangleValues,
-                      LevelConstructor.firstLevelConstructor().quizQuestion)),
-              child: const ColoredContainer(
-                color: Color(0xFFB4F8C8),
+                      LevelConstructor.firstLevelConstructor().quizQuestion,
+                      "countgame1",
+                    ),
+                  );
+                }
+              },
+              child: ColoredContainer(
+                color: Levels.levelsPassedCount >= 0
+                    ? const Color(0xFFB4F8C8)
+                    : Colors.grey,
                 text: '1',
-                txtcolor: Color(0xff18B74B),
+                txtcolor: const Color(0xff18B74B),
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  _createRoute(
+              onTap: () {
+                if (Levels.levelsPassedCount >= 1) {
+                  // Adjust the condition as needed
+                  Navigator.push(
+                    context,
+                    _createRoute(
                       LevelConstructor.secondLevelConstructor().correctAnswer,
                       LevelConstructor.secondLevelConstructor().rectangleValues,
-                      LevelConstructor.secondLevelConstructor().quizQuestion)),
-              child: const ColoredContainer(
-                color: Color(0xFFA0E7E5),
+                      LevelConstructor.secondLevelConstructor().quizQuestion,
+                      "countgame2",
+                    ),
+                  );
+                }
+              },
+              child: ColoredContainer(
+                color: Levels.levelsPassedCount >= 1
+                    ? const Color(0xFFA0E7E5)
+                    : Colors.grey,
                 text: '2',
-                txtcolor: Color(0xff199EC2),
+                txtcolor: const Color(0xff199EC2),
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  _createRoute(
+              onTap: () {
+                if (Levels.levelsPassedCount >= 2) {
+                  // Adjust the condition as needed
+                  Navigator.push(
+                    context,
+                    _createRoute(
                       LevelConstructor.thirdLevelConstructor().correctAnswer,
                       LevelConstructor.thirdLevelConstructor().rectangleValues,
-                      LevelConstructor.thirdLevelConstructor().quizQuestion)),
-              child: const ColoredContainer(
-                color: Color(0xFFFFAEBC),
+                      LevelConstructor.thirdLevelConstructor().quizQuestion,
+                      "countgame3",
+                    ),
+                  );
+                }
+              },
+              child: ColoredContainer(
+                color: Levels.levelsPassedCount >= 2
+                    ? const Color(0xFFFFAEBC)
+                    : Colors.grey,
                 text: '3',
-                txtcolor: Color(0xffC55C6C),
+                txtcolor: const Color(0xffC55C6C),
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  _createRoute(
+              onTap: () {
+                if (Levels.levelsPassedCount >= 3) {
+                  // Adjust the condition as needed
+                  Navigator.push(
+                    context,
+                    _createRoute(
                       LevelConstructor.fourthLevelConstructor().correctAnswer,
                       LevelConstructor.fourthLevelConstructor().rectangleValues,
-                      LevelConstructor.fourthLevelConstructor().quizQuestion)),
-              child: const ColoredContainer(
-                color: Color(0xFFFBE7C6),
+                      LevelConstructor.fourthLevelConstructor().quizQuestion,
+                      "countgame4",
+                    ),
+                  );
+                }
+              },
+              child: ColoredContainer(
+                color: Levels.levelsPassedCount >= 3
+                    ? const Color(0xFFFBE7C6)
+                    : Colors.grey,
                 text: '4',
-                txtcolor: Color(0xffCA9719),
+                txtcolor: const Color(0xffCA9719),
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  _createRoute(
-                      LevelConstructor.fifthLevelConstructor().correctAnswer,
-                      LevelConstructor.fifthLevelConstructor().rectangleValues,
-                      LevelConstructor.fifthLevelConstructor().quizQuestion)),
-              child: const ColoredContainer(
-                color: Color(0xFFB4F8C8),
+              onTap: () {
+                if (Levels.levelsPassedCount >= 4) {
+                  // Adjust the condition as needed
+                  Navigator.push(
+                    context,
+                    _createRoute(
+                      LevelConstructor.firstLevelConstructor().correctAnswer,
+                      LevelConstructor.firstLevelConstructor().rectangleValues,
+                      LevelConstructor.firstLevelConstructor().quizQuestion,
+                      "countgame5",
+                    ),
+                  );
+                }
+              },
+              child: ColoredContainer(
+                color: Levels.levelsPassedCount >= 4
+                    ? const Color(0xFFB4F8C8)
+                    : Colors.grey,
                 text: '5',
-                txtcolor: Color(0xff18B74B),
+                txtcolor: const Color(0xff18B74B),
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  _createRoute(
-                      LevelConstructor.sixthLevelConstructor().correctAnswer,
-                      LevelConstructor.sixthLevelConstructor().rectangleValues,
-                      LevelConstructor.sixthLevelConstructor().quizQuestion)),
-              child: const ColoredContainer(
-                color: Color(0xFFA0E7E5),
+              onTap: () {
+                if (Levels.levelsPassedCount >= 5) {
+                  // Adjust the condition as needed
+                  Navigator.push(
+                    context,
+                    _createRoute(
+                      LevelConstructor.firstLevelConstructor().correctAnswer,
+                      LevelConstructor.firstLevelConstructor().rectangleValues,
+                      LevelConstructor.firstLevelConstructor().quizQuestion,
+                      "countgame6",
+                    ),
+                  );
+                }
+              },
+              child: ColoredContainer(
+                color: Levels.levelsPassedCount >= 5
+                    ? const Color(0xFFA0E7E5)
+                    : Colors.grey,
                 text: '6',
-                txtcolor: Color(0xff199EC2),
+                txtcolor: const Color(0xff199EC2),
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  _createRoute(
-                      LevelConstructor.seventhLevelConstructor().correctAnswer,
-                      LevelConstructor.seventhLevelConstructor()
-                          .rectangleValues,
-                      LevelConstructor.seventhLevelConstructor().quizQuestion)),
-              child: const ColoredContainer(
-                color: Color(0xFFFFAEBC),
+              onTap: () {
+                if (Levels.levelsPassedCount >= 6) {
+                  // Adjust the condition as needed
+                  Navigator.push(
+                    context,
+                    _createRoute(
+                      LevelConstructor.firstLevelConstructor().correctAnswer,
+                      LevelConstructor.firstLevelConstructor().rectangleValues,
+                      LevelConstructor.firstLevelConstructor().quizQuestion,
+                      "countgame7",
+                    ),
+                  );
+                }
+              },
+              child: ColoredContainer(
+                color: Levels.levelsPassedCount >= 6
+                    ? const Color(0xFFFFAEBC)
+                    : Colors.grey,
                 text: '7',
-                txtcolor: Color.fromARGB(255, 255, 255, 255),
+                txtcolor: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  _createRoute(
-                      LevelConstructor.eightLevelConstructor().correctAnswer,
-                      LevelConstructor.eightLevelConstructor().rectangleValues,
-                      LevelConstructor.eightLevelConstructor().quizQuestion)),
-              child: const ColoredContainer(
-                color: Color(0xFFFBE7C6),
+              onTap: () {
+                if (Levels.levelsPassedCount >= 7) {
+                  // Adjust the condition as needed
+                  Navigator.push(
+                    context,
+                    _createRoute(
+                      LevelConstructor.firstLevelConstructor().correctAnswer,
+                      LevelConstructor.firstLevelConstructor().rectangleValues,
+                      LevelConstructor.firstLevelConstructor().quizQuestion,
+                      "countgame8",
+                    ),
+                  );
+                }
+              },
+              child: ColoredContainer(
+                color: Levels.levelsPassedCount >= 7
+                    ? const Color(0xFFFBE7C6)
+                    : Colors.grey,
                 text: '8',
-                txtcolor: Color.fromARGB(255, 255, 255, 255),
+                txtcolor: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
           ],
@@ -164,14 +244,14 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
 class ColoredContainer extends StatelessWidget {
   final Color color;
   final Color txtcolor;
-  final String text; // Added property for the text
+  final String text; // Existing property for the text
 
   const ColoredContainer({
-    super.key,
+    Key? key,
     required this.color,
     required this.txtcolor,
     required this.text, // Constructor now requires the text
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,27 +1,36 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../../core/utils/levels_passed.dart';
+import '../../count_games_level_page/count_games_levels_view.dart';
 
 class CountPageViewbody extends StatelessWidget {
   final String correctAnswer;
   final List<String> rectangleValues;
   final List<Color> buttonColors;
   final String quizQuestion;
+  final String levelId; // Add this line
 
   const CountPageViewbody({
     super.key,
     required this.correctAnswer,
     required this.rectangleValues,
     required this.buttonColors,
-    required this.quizQuestion, // Add this line
+    required this.quizQuestion,
+    required this.levelId, // Add this line
   });
-
   void _checkAnswer(BuildContext context, String selectedAnswer) {
     if (selectedAnswer == correctAnswer) {
-      Levels.incrementGamesNumbersCountlevels();
-      print(Levels.gamesNumbersCountlevels);
+      Levels.markLevelAsPassed(levelId);
+      if (kDebugMode) {
+        print("count games levels passed: ${Levels.levelsPassedCount}");
+      }
       Navigator.of(context).pop();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const CountGamesLevelView()),
+      );
     } else {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("Try Again")));

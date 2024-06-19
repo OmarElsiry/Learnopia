@@ -1,11 +1,11 @@
 class Levels {
-  static int gems = 0;
-  static void incrementGemes() {
-    gamesNumbersCountlevels++;
+  static List<String> levelsPassed = [];
+
+  static void markLevelAsPassed(String levelId) {
+    if (!levelsPassed.contains(levelId)) {
+      levelsPassed.add(levelId); // Corrected line to add only levelId
+    }
   }
 
-  static int gamesNumbersCountlevels = 0;
-  static void incrementGamesNumbersCountlevels() {
-    gamesNumbersCountlevels++;
-  }
+  static int get levelsPassedCount => levelsPassed.length;
 }
