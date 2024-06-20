@@ -1,4 +1,4 @@
-import 'package:educational_kids_game/constant.dart';
+import 'package:educational_kids_game/core/utils/constant.dart';
 import 'package:educational_kids_game/core/utils/approutes.dart';
 import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:educational_kids_game/features/auth_features/sign_in/presantation/view_models/Sign_in_cubit/sign_in_cubit.dart';
