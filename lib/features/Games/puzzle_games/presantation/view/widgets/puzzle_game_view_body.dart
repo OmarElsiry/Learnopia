@@ -34,7 +34,6 @@ class _PuzzleGameViewBodyState extends State<PuzzleGameViewBody> {
           const SizedBox(
             height: 35,
           ),
-          // In puzzle_game_view_body.dart
           ViewOtp(
               correctAnswer: widget.correctAnswer, imageName: widget.imageName),
           const SizedBox(
