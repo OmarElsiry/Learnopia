@@ -1,7 +1,7 @@
 import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:educational_kids_game/features/Games/Math%20game/presantation/view/math_game_view.dart';
+import 'package:educational_kids_game/features/Math_game/view/math_game_view.dart';
 
 class NumsLevelSelectionPage extends StatelessWidget {
   static String numsRouteNameId = 'nums level selection page';
