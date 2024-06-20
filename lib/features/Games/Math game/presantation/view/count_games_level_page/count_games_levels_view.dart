@@ -69,7 +69,10 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 0
                     ? const Color(0xFFB4F8C8)
                     : Colors.grey,
-                txtcolor: Colors.white, // Example text color
+                txtcolor: Levels.levelsPassedCount >= 0
+                    ? const Color(0xff18B74B)
+                    : Colors
+                        .grey, // Default text color to grey when condition is false
                 starColor: Levels.levelsPassedCount >= 1
                     ? const Color(0xffCA9719)
                     : const Color(0xFF808080),
@@ -95,11 +98,14 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 1
                     ? const Color(0xFFA0E7E5)
                     : Colors.grey,
-                txtcolor: Colors.white, // Example text color
-                starColor: Levels.levelsPassedCount >= 1
-                    ? const Color(0xff199EC2)
-                    : const Color(
-                        0xffCA9719), // Dynamic star color based on your specification
+                txtcolor: Levels.levelsPassedCount >= 1
+                    ? const Color(
+                        0xff199EC2) // Using light blue for txtcolor when condition is true
+                    : Colors
+                        .grey, // Default text color to grey when condition is false
+                starColor: Levels.levelsPassedCount >= 2
+                    ? const Color(0xffCA9719)
+                    : const Color(0xFF808080),
                 text: '2',
               ),
             ),
@@ -122,11 +128,14 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 color: Levels.levelsPassedCount >= 2
                     ? const Color(0xFFFFAEBC)
                     : Colors.grey,
-                txtcolor: Colors.white, // Example text color
-                starColor: Levels.levelsPassedCount >= 2
-                    ? const Color(0xff18B74B)
-                    : const Color(
-                        0xffC55C6C), // Dynamic star color based on your specification
+                txtcolor: Levels.levelsPassedCount >= 2
+                    ? const Color(
+                        0xffC55C6C) // Using light blue for txtcolor when condition is true
+                    : Colors
+                        .grey, // Default text color to grey when condition is false
+                starColor: Levels.levelsPassedCount >= 3
+                    ? const Color(0xffCA9719)
+                    : const Color(0xFF808080),
                 text: '3',
               ),
             ),
@@ -146,14 +155,16 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 }
               },
               child: ColoredContainer(
-                color: Levels.levelsPassedCount >= 3
-                    ? const Color(0xFFFBE7C6)
+                color: Levels.levelsPassedCount < 3
+                    ? Colors.grey
+                    : const Color(0xFFFBE7C6),
+                txtcolor: Levels.levelsPassedCount >= 3
+                    ? const Color(
+                        0xffCA9719) // Using light blue for txtcolor when condition is true
+                    : Colors.grey, // Example text color
+                starColor: Levels.levelsPassedCount >= 4
+                    ? const Color(0xffCA9719)
                     : Colors.grey,
-                txtcolor: Colors.white, // Example text color
-                starColor: Levels.levelsPassedCount >= 3
-                    ? const Color(0xff199EC2)
-                    : const Color(
-                        0xffCA9719), // Dynamic star color based on your specification
                 text: '4',
               ),
             ),
@@ -173,14 +184,16 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 }
               },
               child: ColoredContainer(
-                color: Levels.levelsPassedCount >= 4
-                    ? const Color(0xFFB4F8C8)
-                    : Colors.grey,
-                txtcolor: Colors.white, // Example text color
-                starColor: Levels.levelsPassedCount >= 4
+                color: Levels.levelsPassedCount < 4
+                    ? Colors.grey
+                    : const Color(0xffB4F8C8),
+                txtcolor: Levels.levelsPassedCount >= 4
+                    ? const Color(
+                        0xff18B74B) // Using light blue for txtcolor when condition is true
+                    : Colors.grey, // Example text color
+                starColor: Levels.levelsPassedCount >= 5
                     ? const Color(0xffCA9719)
-                    : const Color(
-                        0xff18B74B), // Dynamic star color based on your specification
+                    : Colors.grey,
                 text: '5',
               ),
             ),
@@ -200,14 +213,16 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 }
               },
               child: ColoredContainer(
-                color: Levels.levelsPassedCount >= 5
-                    ? const Color(0xFFA0E7E5)
+                color: Levels.levelsPassedCount < 5
+                    ? Colors.grey
+                    : const Color(0xffA0E7E5),
+                txtcolor: Levels.levelsPassedCount >= 5
+                    ? const Color(
+                        0xff199EC2) // Using light blue for txtcolor when condition is true
+                    : Colors.grey, // Example text color
+                starColor: Levels.levelsPassedCount >= 6
+                    ? const Color(0xffCA9719)
                     : Colors.grey,
-                txtcolor: Colors.white, // Example text color
-                starColor: Levels.levelsPassedCount >= 5
-                    ? const Color(0xff18B74B)
-                    : const Color(
-                        0xff199EC2), // Dynamic star color based on your specification
                 text: '6',
               ),
             ),
@@ -227,14 +242,16 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 }
               },
               child: ColoredContainer(
-                color: Levels.levelsPassedCount >= 6
-                    ? const Color(0xFFFFAEBC)
-                    : Colors.grey,
-                txtcolor: Colors.white, // Example text color
-                starColor: Levels.levelsPassedCount >= 6
+                color: Levels.levelsPassedCount < 6
+                    ? Colors.grey
+                    : const Color(0xFFFFAEBC),
+                txtcolor: Levels.levelsPassedCount >= 6
+                    ? const Color(
+                        0xff199EC2) // Using light blue for txtcolor when condition is true
+                    : Colors.grey, // Example text color
+                starColor: Levels.levelsPassedCount >= 7
                     ? const Color(0xffCA9719)
-                    : const Color(
-                        0xffC55C6C), // Dynamic star color based on your specification
+                    : Colors.grey,
                 text: '7',
               ),
             ),
@@ -254,14 +271,16 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 }
               },
               child: ColoredContainer(
-                color: Levels.levelsPassedCount >= 7
-                    ? const Color(0xFFFBE7C6)
+                color: Levels.levelsPassedCount < 7
+                    ? Colors.grey
+                    : const Color(0xFFFBE7C6),
+                txtcolor: Levels.levelsPassedCount >= 7
+                    ? const Color(
+                        0xff199EC2) // Using light blue for txtcolor when condition is true
+                    : Colors.grey, // Example text color
+                starColor: Levels.levelsPassedCount >= 8
+                    ? const Color(0xffCA9719)
                     : Colors.grey,
-                txtcolor: Colors.white, // Example text color
-                starColor: Levels.levelsPassedCount >= 7
-                    ? const Color(0xff199EC2)
-                    : const Color(
-                        0xff18B74B), // Dynamic star color based on your specification
                 text: '8',
               ),
             ),

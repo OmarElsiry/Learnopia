@@ -7,9 +7,9 @@ import 'package:educational_kids_game/features/auth_features/sign_up/presantatio
 import 'package:educational_kids_game/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 import 'generated/l10n.dart';
 
 void main() async {
@@ -19,6 +19,28 @@ void main() async {
   );
   NotificationService services = NotificationService();
   await services.init();
+  
+  // Set system UI overlay style and enable immersive mode
+  SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.light,
+    systemNavigationBarIconBrightness: Brightness.light,
+    systemNavigationBarColor: Colors.transparent,
+    systemNavigationBarDividerColor: Colors.transparent,
+    systemNavigationBarContrastEnforced: false,
+    systemStatusBarContrastEnforced: false,
+  );
+  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+
+  // Choose one of the following lines based on your desired full-screen behavior
+  // For immersive sticky mode with bottom overlay
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky, overlays: [SystemUiOverlay.bottom]);
+
+  // For manual mode with specific overlays
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+
+  // For edge-to-edge mode
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   runApp(const EducationKids());
 }
 
@@ -46,6 +68,7 @@ class EducationKids extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
+        title: 'Learnopia',
         theme:
             ThemeData.light().copyWith(scaffoldBackgroundColor: kprimaryColor),
         routes: Approutes.routes,
