@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'presentation/view/widgets/prounounce_view_body.dart';
+import 'view/widgets/prounounce_view_body.dart';
 
 class ProunounceView extends StatelessWidget {
   const ProunounceView({super.key});

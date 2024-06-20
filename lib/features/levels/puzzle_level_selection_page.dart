@@ -1,5 +1,5 @@
 import 'package:educational_kids_game/core/utils/screen_size.dart';
-import 'package:educational_kids_game/features/Games/puzzle_games/presantation/view/puzzle_game_view.dart';
+import 'package:educational_kids_game/features/puzzle_games/view/puzzle_game_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

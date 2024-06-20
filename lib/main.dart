@@ -1,6 +1,6 @@
 import 'package:educational_kids_game/core/helper/system_ui_overlay_style.dart';
 import 'package:educational_kids_game/education_kids.dart';
-import 'package:educational_kids_game/features/Notification_Service/local_notification_service.dart';
+import 'package:educational_kids_game/core/Notification_Service/local_notification_service.dart';
 import 'package:educational_kids_game/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -19,5 +19,3 @@ void main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   runApp(const EducationKids());
 }
-
-

@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:educational_kids_game/core/utils/assets.dart';
 import 'package:educational_kids_game/features/Add%20Kid/presantation/view/widgets/custom_appbar.dart';
 import 'package:educational_kids_game/features/Add%20Kid/presantation/view/widgets/show_Row_add_kid.dart';
-import 'package:educational_kids_game/features/Notification_Service/local_notification_service.dart';
-import 'package:educational_kids_game/features/auth_features/sign_in/presantation/views/widgets/custom_button_sigin.dart';
-import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/custom_textfield.dart';
-import 'package:educational_kids_game/features/navigation_bar_view.dart';
+import 'package:educational_kids_game/core/Notification_Service/local_notification_service.dart';
+import 'package:educational_kids_game/features/sign_in/views/widgets/custom_button_sigin.dart';
+import 'package:educational_kids_game/features/sign_up/views/widgets/custom_textfield.dart';
+import 'package:educational_kids_game/core/helper/navigation_bar_view.dart';
 import 'package:flutter/material.dart';
 
 class AddKidViewBody extends StatefulWidget {
