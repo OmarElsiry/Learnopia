@@ -50,7 +50,7 @@ class KidProfileViewBody extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const Viewresults(),
+           Viewresults(),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

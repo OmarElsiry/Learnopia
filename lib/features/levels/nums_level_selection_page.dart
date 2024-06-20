@@ -1,3 +1,4 @@
+import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:educational_kids_game/features/Games/Math%20game/presantation/view/math_game_view.dart';
@@ -20,7 +21,8 @@ class NumsLevelSelectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
+    final double screenHeight = ScreenSize.height;
+    final double screenWidth = ScreenSize.width;
     int numberOfLogos = levels["Group1"]!.length;
 
     return Stack(
@@ -31,7 +33,7 @@ class NumsLevelSelectionPage extends StatelessWidget {
           double verticalSpacing = (screenHeight / numberOfLogos);
 
           return Positioned(
-            right: logoInfo["positionX"] * MediaQuery.of(context).size.width,
+            right: logoInfo["positionX"] * screenWidth,
             top: verticalSpacing * index,
             child: GestureDetector(
               onTap: () {

@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'core/utils/screen_size.dart';
 import 'generated/l10n.dart';
 
 void main() async {
@@ -19,7 +20,7 @@ void main() async {
   );
   NotificationService services = NotificationService();
   await services.init();
-  
+
   // Set system UI overlay style and enable immersive mode
   SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -49,6 +50,8 @@ class EducationKids extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenSize.initialize(context);
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(

@@ -1,6 +1,6 @@
+import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../../core/utils/levels_passed.dart';
@@ -40,9 +40,8 @@ class CountPageViewbody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var mediaQueryData = MediaQuery.sizeOf(context);
-    var screenheight = mediaQueryData.height;
-    var screenwidth = mediaQueryData.width;
+    final double screenheight = ScreenSize.height;
+    final double screenwidth = ScreenSize.width;
     return Scaffold(
       backgroundColor: const Color(0xFFFBF5F2),
       body: Column(
@@ -119,14 +118,14 @@ class CustomText extends StatelessWidget {
   final Color color; // Default color
 
   const CustomText({
-    Key? key,
+    super.key,
     required this.text,
     this.fontSize = 48, // Default fontSize
     this.fontFamily = 'Poppins', // Default fontFamily
     this.fontStyle = FontStyle.normal, // Default fontStyle
     this.fontWeight = FontWeight.w700, // Default fontWeight
     this.color = const Color(0xffEE8B60), // Default color
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

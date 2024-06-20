@@ -1,3 +1,4 @@
+import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ripple_animation/ripple_animation.dart';
 
@@ -6,10 +7,10 @@ class MicButton extends StatefulWidget {
   final bool isListening; // New parameter
 
   const MicButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.isListening, // Initialize with default value
-  }) : super(key: key);
+  });
 
   @override
   State<MicButton> createState() => _MicButtonState();
@@ -21,7 +22,7 @@ class _MicButtonState extends State<MicButton> {
     return GestureDetector(
       onTap: widget.onPressed,
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
         // Other properties...
         child: Center(
@@ -32,8 +33,8 @@ class _MicButtonState extends State<MicButton> {
                   child: const Icon(Icons.mic, color: Colors.white, size: 30),
                 )
               : Container(
-                  width: MediaQuery.of(context).size.width * 0.25,
-                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: ScreenSize.width * 0.25,
+                  height: ScreenSize.height * 0.07,
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: const Color(0xFFEB9F4A),

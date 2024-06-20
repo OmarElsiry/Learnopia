@@ -1,17 +1,19 @@
+import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 
 class AgeKidCustom extends StatelessWidget {
   const AgeKidCustom({
     super.key,
     required this.num,
-    this.selected = false, required this.onSelected,
+    this.selected = false,
+    required this.onSelected,
   });
   final String num;
   final bool selected;
-   final ValueChanged<bool> onSelected;
+  final ValueChanged<bool> onSelected;
   @override
   Widget build(BuildContext context) {
-    final scrrenheight = MediaQuery.of(context).size.height * 0.09;
+    final scrrenheight = ScreenSize.height * 0.1;
     return GestureDetector(
       onTap: () => onSelected(!selected),
       child: Container(

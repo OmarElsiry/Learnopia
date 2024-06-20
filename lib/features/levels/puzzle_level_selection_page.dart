@@ -1,3 +1,4 @@
+import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:educational_kids_game/features/Games/puzzle_games/presantation/view/puzzle_game_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,7 +20,7 @@ class PuzzleLevelSelectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = ScreenSize.height;
     int numberOfLogos = levels["Group1"]!.length;
 
     return Stack(
@@ -30,7 +31,7 @@ class PuzzleLevelSelectionPage extends StatelessWidget {
           double verticalSpacing = (screenHeight / numberOfLogos);
 
           return Positioned(
-            right: logoInfo["positionX"] * MediaQuery.of(context).size.width,
+            right: logoInfo["positionX"] * ScreenSize.width,
             top: verticalSpacing * index,
             child: GestureDetector(
               onTap: () {

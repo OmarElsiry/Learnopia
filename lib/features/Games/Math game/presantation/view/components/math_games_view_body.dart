@@ -1,3 +1,4 @@
+import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
@@ -11,7 +12,7 @@ class MyMathGamesScreen extends StatelessWidget {
     if (index == 1) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => CountGamesLevelView()),
+        MaterialPageRoute(builder: (context) => const CountGamesLevelView()),
       );
     }
     if (index == 2) {
@@ -36,9 +37,8 @@ class MyMathGamesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var mediaQueryData = MediaQuery.sizeOf(context);
-    var screenheight = mediaQueryData.height;
-    var screenwidth = mediaQueryData.height;
+    final double screenheight = ScreenSize.height;
+    final double screenwidth = ScreenSize.height;
 
     return Scaffold(
       body: Column(
@@ -170,6 +170,7 @@ class MyMathGamesScreen extends StatelessWidget {
                   ),
                   child: Center(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SvgPicture.asset(
@@ -204,6 +205,7 @@ class MyMathGamesScreen extends StatelessWidget {
                   ),
                   child: Center(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SvgPicture.asset(
@@ -217,7 +219,7 @@ class MyMathGamesScreen extends StatelessWidget {
                             fontStyle: FontStyle.normal,
                             fontWeight: FontWeight.w700,
                             fontSize: 24,
-                            color: Color(0xffBE3E53),
+                            color: Color(0xffFFD76D),
                             package: 'google_fonts_flutter',
                           ),
                         ),

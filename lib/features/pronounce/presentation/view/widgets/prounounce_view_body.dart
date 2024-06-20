@@ -6,8 +6,7 @@ import 'package:speech_to_text/speech_to_text.dart';
 class ProunounceViewBody extends StatefulWidget {
   final String targetWord;
 
-  const ProunounceViewBody({Key? key, required this.targetWord})
-      : super(key: key);
+  const ProunounceViewBody({super.key, required this.targetWord});
 
   @override
   State<ProunounceViewBody> createState() => _ProunounceViewBodyState();
@@ -69,7 +68,7 @@ class _ProunounceViewBodyState extends State<ProunounceViewBody> {
           dialogShown = true;
 
           // Wait for a short duration before navigating back
-          Future.delayed(Duration(milliseconds: 300), () {
+          Future.delayed(const Duration(milliseconds: 300), () {
             AwesomeDialog(
               context: context,
               dialogType: DialogType.success,
@@ -128,7 +127,7 @@ class _ProunounceViewBodyState extends State<ProunounceViewBody> {
         onPressed: () async {
           if (speechToText.isListening) {
             // Stop listening after 4 seconds
-            Timer(Duration(seconds: 4), () async {
+            Timer(const Duration(seconds: 4), () async {
               stopListening();
               setState(() {
                 speechEnable = false;
@@ -137,7 +136,7 @@ class _ProunounceViewBodyState extends State<ProunounceViewBody> {
           } else {
             // Start listening and then stop after 4 seconds
             startListening();
-            Timer(Duration(seconds: 4), stopListening);
+            Timer(const Duration(seconds: 4), stopListening);
             setState(() {
               speechEnable = false;
             });

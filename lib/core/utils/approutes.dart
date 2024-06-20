@@ -4,7 +4,6 @@ import 'package:educational_kids_game/features/auth_features/sign_up/presantatio
 import 'package:educational_kids_game/features/in%20side%20app/Challenges/presantation/view/Games_view.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/kid_home_view.dart';
 import 'package:educational_kids_game/features/in%20side%20app/kid%20profile/presantation/view/kid_profile_view.dart';
-import 'package:educational_kids_game/features/in%20side%20app/unit%20math/presantation/view/unit_math_view.dart';
 import 'package:educational_kids_game/features/navigation_bar_view.dart';
 import 'package:educational_kids_game/features/settings/presantation/view/settings_view.dart';
 import '../../features/levels/nums_level_selection_page.dart';
@@ -21,7 +20,6 @@ abstract class Approutes {
     KidHomeView.kidhomeid: (context) => const KidHomeView(),
     KidProfileView.kidprofileid: (context) => const KidProfileView(),
     GamesView.gamesviewid: (context) => const GamesView(),
-    UnitMathView.unitmathid: (context) => const UnitMathView(),
     PasswordSettingsView.settingsid: (context) => const PasswordSettingsView(),
     SettingsView.settingsviewid: (context) => const SettingsView(),
     ProunounceView.prounounceViewid: (context) => const ProunounceView(),

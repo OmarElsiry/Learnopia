@@ -1,8 +1,10 @@
+import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Viewresults extends StatelessWidget {
-  const Viewresults({super.key});
+  Viewresults({super.key});
+  final double screenWidth = ScreenSize.width;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class Viewresults extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: MediaQuery.of(context).size.width * 0.52,
+            left: screenWidth * 0.52,
             child: const CustomContainerView(
               title: 'Bronze',
               subtitle: 'quiz grades',
@@ -35,7 +37,7 @@ class Viewresults extends StatelessWidget {
           ),
           Positioned(
             top: 70,
-            left: MediaQuery.of(context).size.width * 0.52,
+            left: screenWidth * 0.52,
             child: const CustomContainerView(
               title: '2',
               subtitle: 'Top 3 Finishes',
@@ -43,22 +45,22 @@ class Viewresults extends StatelessWidget {
           ),
           Positioned(
             top: 15,
-            left: MediaQuery.of(context).size.width * 0.55,
+            left: screenWidth * 0.55,
             child: Image.asset('assets/images/Flash.png'),
           ),
           Positioned(
             top: 10,
-            left: MediaQuery.of(context).size.width * 0.07,
+            left: screenWidth * 0.07,
             child: Image.asset('assets/images/Fire.png'),
           ),
           Positioned(
             top: 90,
-            left: MediaQuery.of(context).size.width * 0.07,
+            left: screenWidth * 0.07,
             child: const Icon(FontAwesomeIcons.coins),
           ),
           Positioned(
             top: 85,
-            left: MediaQuery.of(context).size.width * 0.55,
+            left: screenWidth * 0.55,
             child: const Icon(FontAwesomeIcons.trophy),
           )
         ],
