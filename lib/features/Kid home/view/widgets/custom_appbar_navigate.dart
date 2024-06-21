@@ -48,7 +48,7 @@ class _CustomNavigateBarState extends State<CustomNavigateBar> {
                 icon: IconButton(
                   icon: const Icon(FontAwesomeIcons.handPeace),
                   onPressed: () {
-                    Navigator.pushNamed(context, GamesView.gamesviewid);
+                    Navigator.pushNamed(context , GamesView.gamesviewid);
                   },
                 ),
                 label: 'Challenges'),
