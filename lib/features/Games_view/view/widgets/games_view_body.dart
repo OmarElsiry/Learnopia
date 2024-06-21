@@ -1,6 +1,6 @@
-import 'package:educational_kids_game/features/Challenges/view/widgets/custom_appbar_games.dart';
-import 'package:educational_kids_game/features/Challenges/view/widgets/custom_container_view.dart';
-import 'package:educational_kids_game/features/Challenges/view/widgets/lion_view.dart';
+import 'package:educational_kids_game/features/Games_view/view/widgets/custom_appbar_games.dart';
+import 'package:educational_kids_game/features/Games_view/view/widgets/custom_container_view.dart';
+import 'package:educational_kids_game/features/Games_view/view/widgets/lion_view.dart';
 import 'package:educational_kids_game/features/levels/puzzle_level_selection_page.dart';
 import 'package:educational_kids_game/features/pronounce/prounounciation_view.dart';
 import 'package:flutter/material.dart';
