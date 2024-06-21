@@ -3,8 +3,11 @@ import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/widgets/custom_row_icon.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/widgets/custom_view_container.dart';
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/widgets/row_text_view.dart';
-import 'package:educational_kids_game/features/in%20side%20app/unit%20math/presantation/view/vids_view.dart';
+import 'package:educational_kids_game/features/in%20side%20app/unit%20quizes/presantation/view/widgets/quiz_data.dart';
+import 'package:educational_kids_game/features/in%20side%20app/unit%20vids/presantation/view/vids_view.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../unit quizes/presantation/view/quizes_view.dart';
 
 class KidHomeViewBody extends StatelessWidget {
   const KidHomeViewBody({super.key});
@@ -147,12 +150,17 @@ class KidHomeViewBody extends StatelessWidget {
                     },
                     color: const Color(0xffF55454).withOpacity(0.6),
                     title: 'math',
+                    showCompletionImage: true,
+                    unitTitle: 'Unit 1',
                   ),
                   SizedBox(
                     width: ScreenSize.width * 0.01,
                   ),
-                  const CostomViewIcon(
+                  const CustomViewContainer(
                     color: Color(0xffC78FF3),
+                    title: '',
+                    showCompletionImage: false,
+                    unitTitle: '',
                   )
                 ],
               ),
@@ -172,37 +180,49 @@ class KidHomeViewBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomViewContainer(
+                      ontap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const VidsPassValues(
+                                    videoUrls: [
+                                      "https://www.youtube.com/watch?v=H1cELUetPFM",
+                                      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                                      "https://www.youtube.com/watch?v=4MCKxQcFg6U",
+                                      "https://www.youtube.com/watch?v=75p0YeecIAc",
+                                      "https://www.youtube.com/watch?v=H1cELUetPFM",
+                                      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                                      "https://www.youtube.com/watch?v=4MCKxQcFg6U",
+                                      "https://www.youtube.com/watch?v=75p0YeecIAc",
+                                    ],
+                                  )),
+                        );
+                      },
+                      color: const Color(0xff4EE292).withOpacity(0.6),
+                      title: 'Englsih ',
+                      showCompletionImage: true,
+                      unitTitle: 'Unit 1'),
+                  SizedBox(
+                    width: ScreenSize.width * 0.01,
+                  ),
+                  CustomViewContainer(
+                    color: const Color(0xff0074FF).withOpacity(0.6),
+                    title: '',
+                    showCompletionImage: false,
+                    unitTitle: '',
                     ontap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const VidsPassValues(
-                                  videoUrls: [
-                                    "https://www.youtube.com/watch?v=H1cELUetPFM",
-                                    "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                    "https://www.youtube.com/watch?v=4MCKxQcFg6U",
-                                    "https://www.youtube.com/watch?v=75p0YeecIAc",
-                                    "https://www.youtube.com/watch?v=H1cELUetPFM",
-                                    "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                    "https://www.youtube.com/watch?v=4MCKxQcFg6U",
-                                    "https://www.youtube.com/watch?v=75p0YeecIAc",
-                                  ],
+                            builder: (context) => QuizPage(
+                                  quizData: quizOneData,
                                 )),
                       );
                     },
-                    color: const Color(0xff4EE292).withOpacity(0.6),
-                    title: 'Englsih ',
-                  ),
-                  SizedBox(
-                    width: ScreenSize.width * 0.01,
-                  ),
-                  CostomViewIcon(
-                    color: const Color(0xff0074FF).withOpacity(0.6),
                   )
                 ],
               ),
             ),
-         
           ],
         ),
       ),

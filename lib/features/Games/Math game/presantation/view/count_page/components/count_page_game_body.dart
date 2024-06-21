@@ -23,9 +23,9 @@ class CountPageViewbody extends StatelessWidget {
   });
   void _checkAnswer(BuildContext context, String selectedAnswer) {
     if (selectedAnswer == correctAnswer) {
-      Levels.markLevelAsPassed(levelId);
+      CountLevels.addCountLevel(levelId);
       if (kDebugMode) {
-        print("count games levels passed: ${Levels.levelsPassedCount}");
+        print("count games levels passed: ${CountLevels.passedLevelsCount}");
       }
       Navigator.of(context).pop();
       Navigator.pushReplacement(

@@ -1,3 +1,4 @@
+import 'package:educational_kids_game/core/utils/levels_passed.dart';
 import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,6 +11,7 @@ class MyMathGamesScreen extends StatelessWidget {
 
   void _onTap(int index, BuildContext context) {
     if (index == 1) {
+      CountLevels.loadCountLevelsPassed();
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const CountGamesLevelView()),

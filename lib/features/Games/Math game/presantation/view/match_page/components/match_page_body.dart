@@ -148,8 +148,8 @@ class _MatchPageViewBodyState extends State<MatchPageViewBody> {
           ),
         );
       },
-      onWillAccept: (data) => data == number,
-      onAccept: (data) {
+      onWillAcceptWithDetails: (data) => data == number,
+      onAcceptWithDetails: (data) {
         setState(() {
           score[number] = true;
         });

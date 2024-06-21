@@ -76,8 +76,9 @@ class VidsPageConatiners extends StatelessWidget {
   }
 
   void _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      // Note the change here
+      await launchUrl(Uri.parse(url)); // And here
     } else {
       throw 'Could not launch $url';
     }
@@ -87,7 +88,7 @@ class VidsPageConatiners extends StatelessWidget {
 class VideoPlayerScreen extends StatefulWidget {
   final String videoId;
 
-  const VideoPlayerScreen({Key? key, required this.videoId}) : super(key: key);
+  const VideoPlayerScreen({super.key, required this.videoId});
 
   @override
   _VideoPlayerScreenState createState() => _VideoPlayerScreenState();

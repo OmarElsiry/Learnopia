@@ -33,9 +33,11 @@ class GamesViewBody extends StatelessWidget {
                   // Navigator.pushNamed(
                   //     context, NumsLevelSelectionPage.numsRouteNameId);
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MathGameView()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MathGameView(),
+                    ),
+                  );
                 },
                 child: const CustomContainerview(
                   color: Color(0xff4EE292),

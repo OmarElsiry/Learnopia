@@ -8,7 +8,7 @@ class ProunounceView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: ProunounceViewBody(targetWord: "school"),
+      body: PronounceViewBody(targetWord: "school"),
     );
   }
 }

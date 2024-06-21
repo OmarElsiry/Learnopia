@@ -77,7 +77,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 ),
               ),
               Text(
-                '  ${Levels.levelsPassedCount} / 8    ',
+                '  ${CountLevels.passedLevelsCount} / 8    ',
                 style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -97,7 +97,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      if (Levels.levelsPassedCount >= 0) {
+                      if (CountLevels.passedLevelsCount >= 0) {
                         Navigator.push(
                           context,
                           _createRoute(
@@ -113,13 +113,13 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                       }
                     },
                     child: ColoredContainer(
-                      color: Levels.levelsPassedCount >= 0
+                      color: CountLevels.passedLevelsCount >= 0
                           ? const Color(0xFFB4F8C8)
                           : Colors.grey,
-                      txtcolor: Levels.levelsPassedCount >= 0
+                      txtcolor: CountLevels.passedLevelsCount >= 0
                           ? const Color(0xff18B74B)
                           : Colors.grey,
-                      starColor: Levels.levelsPassedCount >= 1
+                      starColor: CountLevels.passedLevelsCount >= 1
                           ? const Color(0xffffeb3b)
                           : const Color(0xFF808080),
                       text: '1',
@@ -127,7 +127,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (Levels.levelsPassedCount >= 1) {
+                      if (CountLevels.passedLevelsCount >= 1) {
                         Navigator.push(
                           context,
                           _createRoute(
@@ -143,13 +143,13 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                       }
                     },
                     child: ColoredContainer(
-                      color: Levels.levelsPassedCount >= 1
+                      color: CountLevels.passedLevelsCount >= 1
                           ? const Color(0xFFA0E7E5)
                           : Colors.grey,
-                      txtcolor: Levels.levelsPassedCount >= 1
+                      txtcolor: CountLevels.passedLevelsCount >= 1
                           ? const Color(0xff199EC2)
                           : Colors.grey,
-                      starColor: Levels.levelsPassedCount >= 2
+                      starColor: CountLevels.passedLevelsCount >= 2
                           ? const Color(0xffffeb3b)
                           : const Color(0xFF808080),
                       text: '2',
@@ -157,7 +157,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (Levels.levelsPassedCount >= 2) {
+                      if (CountLevels.passedLevelsCount >= 2) {
                         Navigator.push(
                           context,
                           _createRoute(
@@ -173,13 +173,13 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                       }
                     },
                     child: ColoredContainer(
-                      color: Levels.levelsPassedCount >= 2
+                      color: CountLevels.passedLevelsCount >= 2
                           ? const Color(0xFFFFAEBC)
                           : Colors.grey,
-                      txtcolor: Levels.levelsPassedCount >= 2
+                      txtcolor: CountLevels.passedLevelsCount >= 2
                           ? const Color(0xffC55C6C)
                           : Colors.grey,
-                      starColor: Levels.levelsPassedCount >= 3
+                      starColor: CountLevels.passedLevelsCount >= 3
                           ? const Color(0xffffeb3b)
                           : const Color(0xFF808080),
                       text: '3',
@@ -187,7 +187,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (Levels.levelsPassedCount >= 3) {
+                      if (CountLevels.passedLevelsCount >= 3) {
                         Navigator.push(
                           context,
                           _createRoute(
@@ -203,13 +203,13 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                       }
                     },
                     child: ColoredContainer(
-                      color: Levels.levelsPassedCount < 3
+                      color: CountLevels.passedLevelsCount < 3
                           ? Colors.grey
                           : const Color(0xFFFBE7C6),
-                      txtcolor: Levels.levelsPassedCount >= 3
+                      txtcolor: CountLevels.passedLevelsCount >= 3
                           ? const Color(0xffC55C6C)
                           : Colors.grey, // Example text color
-                      starColor: Levels.levelsPassedCount >= 4
+                      starColor: CountLevels.passedLevelsCount >= 4
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
                       text: '4',
@@ -217,7 +217,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (Levels.levelsPassedCount >= 4) {
+                      if (CountLevels.passedLevelsCount >= 4) {
                         Navigator.push(
                           context,
                           _createRoute(
@@ -233,13 +233,13 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                       }
                     },
                     child: ColoredContainer(
-                      color: Levels.levelsPassedCount < 4
+                      color: CountLevels.passedLevelsCount < 4
                           ? Colors.grey
                           : const Color(0xffB4F8C8),
-                      txtcolor: Levels.levelsPassedCount >= 4
+                      txtcolor: CountLevels.passedLevelsCount >= 4
                           ? const Color(0xff18B74B)
                           : Colors.grey, // Example text color
-                      starColor: Levels.levelsPassedCount >= 5
+                      starColor: CountLevels.passedLevelsCount >= 5
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
                       text: '5',
@@ -247,7 +247,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (Levels.levelsPassedCount >= 5) {
+                      if (CountLevels.passedLevelsCount >= 5) {
                         Navigator.push(
                           context,
                           _createRoute(
@@ -263,13 +263,13 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                       }
                     },
                     child: ColoredContainer(
-                      color: Levels.levelsPassedCount < 5
+                      color: CountLevels.passedLevelsCount < 5
                           ? Colors.grey
                           : const Color(0xffA0E7E5),
-                      txtcolor: Levels.levelsPassedCount >= 5
+                      txtcolor: CountLevels.passedLevelsCount >= 5
                           ? const Color(0xff199EC2)
                           : Colors.grey, // Example text color
-                      starColor: Levels.levelsPassedCount >= 6
+                      starColor: CountLevels.passedLevelsCount >= 6
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
                       text: '6',
@@ -277,7 +277,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (Levels.levelsPassedCount >= 6) {
+                      if (CountLevels.passedLevelsCount >= 6) {
                         Navigator.push(
                           context,
                           _createRoute(
@@ -293,13 +293,13 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                       }
                     },
                     child: ColoredContainer(
-                      color: Levels.levelsPassedCount < 6
+                      color: CountLevels.passedLevelsCount < 6
                           ? Colors.grey
                           : const Color(0xFFFFAEBC),
-                      txtcolor: Levels.levelsPassedCount >= 6
+                      txtcolor: CountLevels.passedLevelsCount >= 6
                           ? const Color(0xff199EC2)
                           : Colors.grey, // Example text color
-                      starColor: Levels.levelsPassedCount >= 7
+                      starColor: CountLevels.passedLevelsCount >= 7
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
                       text: '7',
@@ -307,7 +307,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (Levels.levelsPassedCount >= 7) {
+                      if (CountLevels.passedLevelsCount >= 7) {
                         Navigator.push(
                           context,
                           _createRoute(
@@ -323,13 +323,13 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                       }
                     },
                     child: ColoredContainer(
-                      color: Levels.levelsPassedCount < 7
+                      color: CountLevels.passedLevelsCount < 7
                           ? Colors.grey
                           : const Color(0xFFFBE7C6),
-                      txtcolor: Levels.levelsPassedCount >= 7
+                      txtcolor: CountLevels.passedLevelsCount >= 7
                           ? const Color(0xff199EC2)
                           : Colors.grey, // Example text color
-                      starColor: Levels.levelsPassedCount >= 8
+                      starColor: CountLevels.passedLevelsCount >= 8
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
                       text: '8',

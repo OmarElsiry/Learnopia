@@ -1,4 +1,4 @@
-import 'package:educational_kids_game/features/in%20side%20app/unit%20math/presantation/view/widgets/vids_view_body.dart';
+import 'package:educational_kids_game/features/in%20side%20app/unit%20vids/presantation/view/widgets/vids_view_body.dart';
 import 'package:flutter/material.dart';
 
 
