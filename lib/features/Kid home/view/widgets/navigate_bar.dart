@@ -1,5 +1,5 @@
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
-import 'package:educational_kids_game/features/Challenges/view/Games_view.dart';
+import 'package:educational_kids_game/features/Games_view/view/Games_view.dart';
 import 'package:educational_kids_game/features/Kid%20home/view/kid_home_view.dart';
 import 'package:educational_kids_game/features/kid%20profile/view/kid_profile_view.dart';
 import 'package:flutter/material.dart';
