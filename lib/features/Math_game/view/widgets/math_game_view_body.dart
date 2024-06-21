@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:math_expressions/math_expressions.dart';
 import '../../../../core/bluetooth/bluetooth_manager.dart';
-import '../../../in side app/Challenges/presantation/view/games_view.dart';
+import '../../../Challenges/view/Games_view.dart';
 import '../../../puzzle_games/view/widgets/custom_appbar.dart';
 import '../math_game_view.dart';
 import 'custom_math_table.dart';
