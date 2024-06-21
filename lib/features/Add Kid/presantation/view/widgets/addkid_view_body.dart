@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:educational_kids_game/core/utils/assets.dart';
 import 'package:educational_kids_game/features/Add%20Kid/presantation/view/widgets/custom_appbar.dart';
-import 'package:educational_kids_game/features/Add%20Kid/presantation/view/widgets/show_Row_add_kid.dart';
+import 'package:educational_kids_game/features/Add%20Kid/presantation/view/widgets/show_row_add_kid.dart';
 import 'package:educational_kids_game/features/Notification_Service/local_notification_service.dart';
 import 'package:educational_kids_game/features/auth_features/sign_in/presantation/views/widgets/custom_button_sigin.dart';
 import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/custom_textfield.dart';
@@ -77,7 +77,7 @@ class _AddKidViewBodyState extends State<AddKidViewBody> {
                 color: AddKidViewBody.kidname.isEmpty
                     ? Colors.grey
                     : const Color(0xffEB9F4A),
-                Name: 'Go',
+                name: 'Go',
                 onTap: () async {
                   if (AddKidViewBody.kidname.isEmpty) {
                     if (formkey.currentState!.validate()) {

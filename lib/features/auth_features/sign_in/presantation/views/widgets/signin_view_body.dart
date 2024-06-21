@@ -7,7 +7,7 @@ import 'package:educational_kids_game/features/auth_features/sign_in/presantatio
 import 'package:educational_kids_game/features/auth_features/sign_in/presantation/views/sections/input_email_and_password.dart';
 import 'package:educational_kids_game/features/auth_features/sign_in/presantation/views/sections/verify_email_to_login_and_navigate_section.dart';
 import 'package:educational_kids_game/features/auth_features/sign_in/presantation/views/widgets/check_box.dart';
-import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/Awesome_widgets.dart';
+import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/awesome_widgets.dart';
 
 
 import 'package:flutter/material.dart';
@@ -84,7 +84,7 @@ class SigninViewBody extends StatelessWidget {
       await notificationService.showInstantNotification(
           2, 'Welcome back', 'How are you today');
     } else if (state is SignInFailure) {
-      Awesome_widgets(context, DialogType.error, 'error', state.errmessage);
+      awesomeWidgets(context, DialogType.error, 'error', state.errmessage);
     }
   }
 }

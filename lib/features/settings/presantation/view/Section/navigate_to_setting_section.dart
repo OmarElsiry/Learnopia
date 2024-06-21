@@ -3,7 +3,7 @@ import 'package:educational_kids_game/features/settings/presantation/view/widget
 import 'package:educational_kids_game/features/settings/presantation/view/widgets/show_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../../auth_features/sign_up/presantation/views/widgets/Awesome_widgets.dart';
+import '../../../../auth_features/sign_up/presantation/views/widgets/awesome_widgets.dart';
 import '../../../../in side app/Kid home/presantation/view/kid_home_view.dart';
 import '../settings_view.dart';
 
@@ -69,7 +69,7 @@ class _NavigateToSettingSectionState extends State<NavigateToSettingSection> {
                       Navigator.pushReplacementNamed(
                           context, SettingsView.settingsviewid);
                     } else {
-                      Awesome_widgets(context, DialogType.error, 'Error',
+                      awesomeWidgets(context, DialogType.error, 'Error',
                           'please enter the numbers below correctly');
                     }
                     widget.onResetSelectedNums(); // Reset selected numbers

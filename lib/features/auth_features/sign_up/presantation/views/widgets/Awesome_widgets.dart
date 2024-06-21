@@ -1,8 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
-// ignore: non_constant_identifier_names
-void Awesome_widgets(
+void awesomeWidgets(
     BuildContext context, DialogType dialogType, String title, String desc) {
   AwesomeDialog(
     context: context,

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class CustomButtonGo extends StatelessWidget {
   // ignore: non_constant_identifier_names
   CustomButtonGo(
-      {super.key, required this.onTap, required this.Name, this.color});
+      {super.key, required this.onTap, required this.name, this.color});
   // ignore: non_constant_identifier_names
-  String? Name;
+  String? name;
   VoidCallback onTap;
   Color? color;
   @override
@@ -24,7 +24,7 @@ class CustomButtonGo extends StatelessWidget {
         height: 60,
         child: Center(
           child: Text(
-            '$Name',
+            '$name',
             style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

@@ -39,7 +39,7 @@ class VerifyEmailToLoginAndNavigateSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 36),
           child: CustomButtonGo(
             color: const Color(0xffEB9F4A),
-            Name: 'GO',
+            name: 'GO',
             onTap: onTap
           ),
         ),

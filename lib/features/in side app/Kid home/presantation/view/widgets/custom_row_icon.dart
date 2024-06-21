@@ -1,5 +1,5 @@
 import 'package:educational_kids_game/features/Add%20Kid/presantation/view/widgets/addkid_view_body.dart';
-import 'package:educational_kids_game/features/Add%20Kid/presantation/view/widgets/show_Row_add_kid.dart';
+import 'package:educational_kids_game/features/Add%20Kid/presantation/view/widgets/show_row_add_kid.dart';
 import 'package:flutter/material.dart';
 
 class CustomRowIcon extends StatelessWidget {

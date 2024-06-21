@@ -86,7 +86,7 @@ class _QuizPageState extends State<QuizPage> {
             children: List.generate(widget.quizData.length, (index) {
               Color circleColor;
               if (index < currentStage) {
-                circleColor = Color.fromARGB(255, 152, 196, 233);
+                circleColor = const Color.fromARGB(255, 152, 196, 233);
               } else if (index == currentStage) {
                 circleColor = const Color(0xffFfffff);
               } else {

@@ -103,6 +103,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     _controller = YoutubePlayerController(
       initialVideoId: widget.videoId,
       flags: const YoutubePlayerFlags(
+        hideThumbnail: false, captionLanguage: 'ar',
         autoPlay: true, // Optional: Set autoplay to true
       ),
     );

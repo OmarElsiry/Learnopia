@@ -1,6 +1,6 @@
 
-import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/Login_Navigate.dart';
-import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/Verify_Email.dart';
+import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/login_navigate.dart';
+import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/verify_email.dart';
 import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/custom_button.dart';
 import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/icon_signup.dart';
 import 'package:flutter/material.dart';

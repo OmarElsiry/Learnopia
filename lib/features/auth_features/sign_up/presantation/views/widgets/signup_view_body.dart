@@ -4,8 +4,8 @@ import 'package:educational_kids_game/features/Add%20Kid/presantation/view/addki
 import 'package:educational_kids_game/features/Notification_Service/local_notification_service.dart';
 import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/Sections/input_email_and_password_section.dart';
 import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/Sections/verify_email_section.dart';
-import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/Awesome_widgets.dart';
-import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/Icon_switch.dart';
+import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/awesome_widgets.dart';
+import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/icon_switch.dart';
 import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/custom_appbar.dart';
 import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/custom_text.dart';
 import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views_model/sign%20up%20cubit/sign_up_cubit.dart';
@@ -110,7 +110,7 @@ class SignupViewBody extends StatelessWidget {
       await notificationService.showInstantNotification(
           2, 'Welcome', 'How are you today?');
     } else if (state is SignUpFailure) {
-      Awesome_widgets(context, DialogType.error, 'error', state.errmessage);
+      awesomeWidgets(context, DialogType.error, 'error', state.errmessage);
       isloading = false;
     }
   }

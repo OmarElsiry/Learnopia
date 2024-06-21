@@ -1,4 +1,4 @@
-import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/Icon_switch.dart';
+import 'package:educational_kids_game/features/auth_features/sign_up/presantation/views/widgets/icon_switch.dart';
 import 'package:flutter/material.dart';
 
 class VerifyEmail extends StatelessWidget {

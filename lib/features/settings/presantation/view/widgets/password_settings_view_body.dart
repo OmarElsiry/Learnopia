@@ -1,6 +1,6 @@
 import 'package:educational_kids_game/features/settings/presantation/view/Section/navigate_to_setting_section.dart';
 import 'package:educational_kids_game/features/settings/presantation/view/Section/show_num_section.dart';
-import 'package:educational_kids_game/features/settings/presantation/view/widgets/custom_AppBar_Setting.dart';
+import 'package:educational_kids_game/features/settings/presantation/view/widgets/custom_appbar_setting.dart';
 import 'package:flutter/material.dart';
 
 class PasswordSettingsViewBody extends StatefulWidget {

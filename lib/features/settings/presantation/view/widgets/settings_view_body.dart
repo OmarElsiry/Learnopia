@@ -1,5 +1,5 @@
-import 'package:educational_kids_game/features/settings/presantation/view/Section/Actions_sections.dart';
-import 'package:educational_kids_game/features/settings/presantation/view/widgets/custom_AppBar_Setting.dart';
+import 'package:educational_kids_game/features/settings/presantation/view/Section/actions_sections.dart';
+import 'package:educational_kids_game/features/settings/presantation/view/widgets/custom_appbar_setting.dart';
 import 'package:educational_kids_game/features/settings/presantation/view/widgets/custom_list_view.dart';
 import 'package:flutter/material.dart';
 
