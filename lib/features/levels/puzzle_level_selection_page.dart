@@ -25,7 +25,7 @@ class PuzzleLevelSelectionPage extends StatelessWidget {
 
     return Stack(
       children: [
-        SvgPicture.asset('assets/images/55.svg', fit: BoxFit.cover),
+        SvgPicture.asset('assets/images/puzzleLevels.svg', fit: BoxFit.cover),
         ...List.generate(numberOfLogos, (index) {
           var logoInfo = levels["Group1"]![index];
           double verticalSpacing = (screenHeight / numberOfLogos);

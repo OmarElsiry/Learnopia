@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:educational_kids_game/core/utils/screen_size.dart';
+import 'package:educational_kids_game/features/communicate_robot/send_message_flask.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:speech_to_text/speech_to_text.dart';
@@ -65,6 +66,9 @@ class _PronounceViewBodyState extends State<PronounceViewBody> {
 
         String targetWord = widget.targetWord.toLowerCase();
 
+        // if (!dialogShown && !spokenWords.contains(targetWord)) {
+        //   sendMessageToRobotFlask("$spokenWords");
+        // }
         // Only show the dialog if it hasn't been shown yet
         if (!dialogShown && spokenWords.contains(targetWord)) {
           dialogShown = true;

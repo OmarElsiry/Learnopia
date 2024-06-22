@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:math_expressions/math_expressions.dart';
-import '../../../../../bluetooth/bluetooth_manager.dart';
+import '../../../../../communicate_robot/send_message_flask.dart';
 import '../../../../../in side app/Challenges/presantation/view/games_view.dart';
 import '../../../../puzzle_games/presantation/view/widgets/custom_appbar.dart';
 import '../math_game_view.dart';
@@ -128,7 +128,7 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Level Passed')),
                     );
-                    sendMessageToRobot("Game_Passed");
+                    sendMessageToRobotFlask("Game_Passed");
                     Navigator.pop(context, GamesView.gamesviewid);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -136,7 +136,7 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                         content: Text('Try Again'),
                       ),
                     );
-                    sendMessageToRobot("Game_Failed");
+                    sendMessageToRobotFlask("Game_Failed");
 
                     Navigator.pushReplacement(
                       context,

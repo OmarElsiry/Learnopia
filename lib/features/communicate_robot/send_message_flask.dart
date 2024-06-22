@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-void sendMessageToRobot(String message) async {
-  var url = Uri.parse('http://192.168.1.2:51000/print_message');
+void sendMessageToRobotFlask(String message) async {
+  var url = Uri.parse('http://172.20.10.6:51000/print_message');
   var response = await http.post(
     url,
     headers: {"Content-Type": "application/json"},
@@ -20,4 +20,3 @@ void sendMessageToRobot(String message) async {
     }
   }
 }
-     

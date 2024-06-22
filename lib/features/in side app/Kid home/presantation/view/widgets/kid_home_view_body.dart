@@ -5,8 +5,10 @@ import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presan
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/widgets/row_text_view.dart';
 import 'package:educational_kids_game/features/in%20side%20app/unit%20quizes/presantation/view/widgets/quiz_data.dart';
 import 'package:educational_kids_game/features/in%20side%20app/unit%20vids/presantation/view/vids_view.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../communicate_robot/send_message_flask.dart';
 import '../../../../unit quizes/presantation/view/quizes_view.dart';
 
 class KidHomeViewBody extends StatelessWidget {
@@ -131,6 +133,13 @@ class KidHomeViewBody extends StatelessWidget {
                 children: [
                   CustomViewContainer(
                     ontap: () {
+                      try {
+                        sendMessageToRobotFlask("Game_Passed");
+                      } catch (error) {
+                        if (kDebugMode) {
+                          print('Error sending message to the robot: $error');
+                        }
+                      }
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -181,6 +190,13 @@ class KidHomeViewBody extends StatelessWidget {
                 children: [
                   CustomViewContainer(
                       ontap: () {
+                        try {
+                          sendMessageToRobotFlask("Game_Passed");
+                        } catch (error) {
+                          if (kDebugMode) {
+                            print('Error sending message to the robot: $error');
+                          }
+                        }
                         Navigator.push(
                           context,
                           MaterialPageRoute(

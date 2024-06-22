@@ -68,7 +68,8 @@ class _NavigateBarState extends State<NavigateBar> {
                   bottom: mediaquerydata.viewInsets.bottom +
                       5), // Adjust the padding here
               child: SizedBox(
-                height: availableHeight * 0.161,
+                // Todo : Change the height to fix ui err
+                height: availableHeight * 0.17577,
                 width: double.infinity,
                 child: DotNavigationBar(
                   backgroundColor:
