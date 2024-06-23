@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../communicate_robot/send_message_flask.dart';
+import '../../../../../levels/nums_level_selection_page.dart';
 import '../../../../unit quizes/presantation/view/quizes_view.dart';
 
 class KidHomeViewBody extends StatelessWidget {
@@ -133,13 +134,13 @@ class KidHomeViewBody extends StatelessWidget {
                 children: [
                   CustomViewContainer(
                     ontap: () {
-                      try {
-                        sendMessageToRobotFlask("Game_Passed");
-                      } catch (error) {
-                        if (kDebugMode) {
-                          print('Error sending message to the robot: $error');
-                        }
-                      }
+                      // try {
+                      //   sendMessageToRobotFlask("");
+                      // } catch (error) {
+                      //   if (kDebugMode) {
+                      //     print('Error sending message to the robot: $error');
+                      //   }
+                      // }
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -230,15 +231,39 @@ class KidHomeViewBody extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => QuizPage(
-                                  quizData: quizOneData,
-                                )),
+                          builder: (context) => QuizPage(
+                            quizData: quizOneData,
+                          ),
+                        ),
                       );
                     },
                   )
                 ],
               ),
             ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 12.0),
+              child: RowTextview(
+                title: 'Advanced math',
+              ),
+            ),
+            CustomViewContainer(
+              color: const Color.fromARGB(255, 166, 137, 206).withOpacity(0.6),
+              title: '',
+              showCompletionImage: false,
+              unitTitle: '',
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NumsLevelSelectionPage(),
+                  ),
+                );
+              },
+            ),
+            SizedBox(
+              height: ScreenSize.height * 0.09,
+            )
           ],
         ),
       ),

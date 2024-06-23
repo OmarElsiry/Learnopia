@@ -3,6 +3,7 @@ import 'package:educational_kids_game/features/in%20side%20app/Challenges/presan
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/kid_home_view.dart';
 import 'package:educational_kids_game/features/in%20side%20app/kid%20profile/presantation/view/kid_profile_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../../../settings/presantation/view/password_settings_view.dart';
 
@@ -48,77 +49,84 @@ class _NavigateBarState extends State<NavigateBar> {
     double screenWidthPercentage =
         mediaquerydata.size.width > 600 ? 0.20 : 0.06;
     double iconSize = screenWidthPercentage * mediaquerydata.size.width;
-    return Scaffold(
-      body: Stack(
-        children: [
-          PageView(
-            controller: _pageController,
-            children: screens,
-            onPageChanged: (index) {
-              setState(() {
-                this.index = index;
-              });
-            },
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              // Adds padding at the bottom to account for the keyboard space
-              padding: EdgeInsets.only(
-                  bottom: mediaquerydata.viewInsets.bottom +
-                      5), // Adjust the padding here
-              child: SizedBox(
-                // Todo : Change the height to fix ui err
-                height: availableHeight * 0.17577,
-                width: double.infinity,
-                child: DotNavigationBar(
-                  backgroundColor:
-                      const Color.fromARGB(255, 222, 217, 217).withOpacity(0.7),
-                  paddingR: EdgeInsets
-                      .zero, // Remove right padding paddingL: EdgeInsets.zero, // Remove left padding
-                  items: [
-                    DotNavigationBarItem(
-                      icon: Icon(
-                        Icons.home,
-                        size: iconSize,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) async {
+        // Prevent the back button from navigating back
+        return;
+      },
+      child: Scaffold(
+        body: Stack(
+          children: [
+            PageView(
+              controller: _pageController,
+              children: screens,
+              onPageChanged: (index) {
+                setState(() {
+                  this.index = index;
+                });
+              },
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                // Adds padding at the bottom to account for the keyboard space
+                padding: EdgeInsets.only(
+                    bottom: mediaquerydata.viewInsets.bottom +
+                        5), // Adjust the padding here
+                child: SizedBox(
+                  // Todo : Change the height to fix ui err
+                  height: availableHeight * 0.17577,
+                  width: double.infinity,
+                  child: DotNavigationBar(
+                    backgroundColor: const Color.fromARGB(255, 222, 217, 217)
+                        .withOpacity(0.7),
+                    paddingR: EdgeInsets
+                        .zero, // Remove right padding paddingL: EdgeInsets.zero, // Remove left padding
+                    items: [
+                      DotNavigationBarItem(
+                        icon: Icon(
+                          Icons.home,
+                          size: iconSize,
+                        ),
+                        selectedColor: const Color(0xff41AC78),
                       ),
-                      selectedColor: const Color(0xff41AC78),
-                    ),
-                    DotNavigationBarItem(
-                      icon: Icon(
-                        Icons.games,
-                        size: iconSize,
+                      DotNavigationBarItem(
+                        icon: Icon(
+                          Icons.games,
+                          size: iconSize,
+                        ),
+                        selectedColor: const Color(0xffDC3F00),
                       ),
-                      selectedColor: const Color(0xffDC3F00),
-                    ),
-                    DotNavigationBarItem(
-                      icon: Icon(
-                        Icons.person,
-                        size: iconSize,
+                      DotNavigationBarItem(
+                        icon: Icon(
+                          Icons.person,
+                          size: iconSize,
+                        ),
+                        selectedColor: const Color(0xffAB70DF),
                       ),
-                      selectedColor: const Color(0xffAB70DF),
-                    ),
-                    DotNavigationBarItem(
-                      icon: Icon(
-                        Icons.settings,
-                        size: iconSize,
+                      DotNavigationBarItem(
+                        icon: Icon(
+                          Icons.settings,
+                          size: iconSize,
+                        ),
+                        selectedColor: const Color(0xffFFB800),
                       ),
-                      selectedColor: const Color(0xffFFB800),
-                    ),
-                  ],
-                  onTap: (index) {
-                    _pageController.animateToPage(
-                      index,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  currentIndex: index,
+                    ],
+                    onTap: (index) {
+                      _pageController.animateToPage(
+                        index,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    currentIndex: index,
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

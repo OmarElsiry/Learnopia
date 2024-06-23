@@ -18,12 +18,14 @@ class AgeKidCustom extends StatelessWidget {
       onTap: () => onSelected(!selected),
       child: Container(
         height: scrrenheight,
-        width: 71,
+        width: ScreenSize.width * 0.2,
         decoration: BoxDecoration(
           color: selected ? Colors.blue : const Color(0xffEB9F4A),
           borderRadius: BorderRadius.circular(24),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               num,

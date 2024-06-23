@@ -57,7 +57,7 @@ class _AddKidViewBodyState extends State<AddKidViewBody> {
               height: 60,
             ),
             const Text(
-              'Your Child’s Age',
+              'Age',
               style: TextStyle(fontFamily: 'Roboto', fontSize: 18),
             ),
             const SizedBox(
@@ -67,7 +67,6 @@ class _AddKidViewBodyState extends State<AddKidViewBody> {
             const SizedBox(
               height: 20,
             ),
-            const ShowRowAddKidForm5(),
             const SizedBox(
               height: 35,
             ),

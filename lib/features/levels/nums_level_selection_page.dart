@@ -8,13 +8,42 @@ class NumsLevelSelectionPage extends StatelessWidget {
 
   final Map<String, List<Map<String, dynamic>>> levels = {
     "Group1": [
-      {"name": "Beep Beep Horse.png", "positionX": 0.15, "nav to": 10},
-      {"name": "Dayflow Black Cat.png", "positionX": 0.25, "nav to": 12},
-      {"name": "Ellipse 1.png", "positionX": 0.2, "nav to": 7},
-      {"name": "Dayflow Black Cat.png", "positionX": 0.18, "nav to": 15},
-      {"name": "Beep Beep Horse.png", "positionX": 0.5, "nav to": 18},
+      {
+        "name": "Beep Beep Horse.png",
+        "positionX": 0.15,
+        "nav to": 10,
+        "numbers": ['4', '7', '2', '6', '1', '3'],
+        "operators": ['', '+', '']
+      },
+      {
+        "name": "Dayflow Black Cat.png",
+        "positionX": 0.25,
+        "nav to": 12,
+        "numbers": ['5', '9', '2', '8', '3', '6'],
+        "operators": ['', '-', '']
+      },
+      {
+        "name": "Ellipse 1.png",
+        "positionX": 0.2,
+        "nav to": 7,
+        "numbers": ['1', '4', '7', '2', '5', '8'],
+        "operators": ['', '+', '']
+      },
+      {
+        "name": "Dayflow Black Cat.png",
+        "positionX": 0.18,
+        "nav to": 15,
+        "numbers": ['2', '4', '6', '8', '1', '3'],
+        "operators": ['', '*', '']
+      },
+      {
+        "name": "Beep Beep Horse.png",
+        "positionX": 0.5,
+        "nav to": 18,
+        "numbers": ['3', '6', '9', '2', '5', '8'],
+        "operators": ['', '/', '']
+      },
     ],
-    // Add more groups with levels here
   };
 
   NumsLevelSelectionPage({super.key});
@@ -27,7 +56,7 @@ class NumsLevelSelectionPage extends StatelessWidget {
 
     return Stack(
       children: [
-        SvgPicture.asset('assets/images/55.svg', fit: BoxFit.cover),
+        SvgPicture.asset('assets/images/puzzleLevels.svg', fit: BoxFit.cover),
         ...List.generate(numberOfLogos, (index) {
           var logoInfo = levels["Group1"]![index];
           double verticalSpacing = (screenHeight / numberOfLogos);
@@ -37,14 +66,13 @@ class NumsLevelSelectionPage extends StatelessWidget {
             top: verticalSpacing * index,
             child: GestureDetector(
               onTap: () {
-                var logoInfo = levels["Group1"]![index];
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => MathGameView(
                       correctAnswer: logoInfo["nav to"],
-                      numbers: const ['4', '7', '2', '6', '1', '3'],
-                      operators: const ['+', '-', '*'],
+                      numbers: logoInfo["numbers"],
+                      operators: logoInfo["operators"],
                     ),
                   ),
                 );

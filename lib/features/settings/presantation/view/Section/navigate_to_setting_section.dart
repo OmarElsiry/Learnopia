@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../auth_features/sign_up/presantation/views/widgets/awesome_widgets.dart';
 import '../../../../in side app/Kid home/presantation/view/kid_home_view.dart';
+import '../../../../navigation_bar_view.dart';
 import '../settings_view.dart';
 
 // In navigate_to_setting_section.dart
@@ -39,7 +40,7 @@ class _NavigateToSettingSectionState extends State<NavigateToSettingSection> {
                   icon: FontAwesomeIcons.x,
                   color: Colors.grey,
                   onpressed: () => Navigator.pushReplacementNamed(
-                      context, KidHomeView.kidhomeid),
+                      context, NavigationBarView.navigationbar),
                 ),
               ),
               Padding(

@@ -21,8 +21,8 @@ class MathGameView extends StatelessWidget {
     return Scaffold(
       body: MathGameViewBody(
         correctAnswer: correctAnswer,
-        numbers: const ['4', '7', '2', '6', '1', '3'],
-        operators: const ['+', '-', '*'],
+        numbers: numbers,
+        operators: operators,
       ),
     );
   }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-// custom_math_table.dart
-
 class CustomMathTable extends StatefulWidget {
   final List<String> numbers;
   final List<String> operators;
@@ -10,10 +8,7 @@ class CustomMathTable extends StatefulWidget {
   final Color? pressedColor;
   final Color? foregroundColor;
   final Color? backgroundColor;
-  final Function(String, bool, int)
-      onButtonPressed; // Updated to include columnIndex
-
-  // In the CustomMathTable widget
+  final Function(String, bool, int) onButtonPressed;
   final Function() onReset;
 
   const CustomMathTable({
@@ -28,6 +23,7 @@ class CustomMathTable extends StatefulWidget {
     required this.onButtonPressed,
     required this.onReset,
   });
+
   @override
   _CustomMathTableState createState() => _CustomMathTableState();
 }
@@ -37,12 +33,18 @@ class _CustomMathTableState extends State<CustomMathTable> {
 
   @override
   Widget build(BuildContext context) {
+    // Ensure sublist ranges do not go out of bounds
+    int numLength = widget.numbers.length;
+    int opLength = widget.operators.length;
+    int minLength = (numLength < 3) ? numLength : 3;
+    int minOpLength = (opLength < 3) ? opLength : 3;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        _buildColumn(widget.numbers.sublist(0, 3), 0),
-        _buildColumn(widget.operators.sublist(0, 3), 1),
-        _buildColumn(widget.numbers.sublist(3, 6), 2),
+        _buildColumn(widget.numbers.sublist(0, minLength), 0),
+        _buildColumn(widget.operators.sublist(0, minOpLength), 1),
+        _buildColumn(widget.numbers.sublist(minLength, numLength), 2),
       ],
     );
   }
@@ -53,7 +55,9 @@ class _CustomMathTableState extends State<CustomMathTable> {
       children: items
           .map((item) => Padding(
                 padding: const EdgeInsets.all(4.0),
-                child: _buildButton(item, columnIndex),
+                child: item.isNotEmpty
+                    ? _buildButton(item, columnIndex)
+                    : const SizedBox.shrink(),
               ))
           .toList(),
     );
@@ -73,8 +77,7 @@ class _CustomMathTableState extends State<CustomMathTable> {
               borderRadius: BorderRadius.circular(0),
             ),
             padding: EdgeInsets.zero,
-            minimumSize: const Size(
-                95, 85), // TODO: this is sub-square dimensions , edit later
+            minimumSize: const Size(95, 85), // Adjust as needed
           ),
           onPressed: () {
             setState(() {
