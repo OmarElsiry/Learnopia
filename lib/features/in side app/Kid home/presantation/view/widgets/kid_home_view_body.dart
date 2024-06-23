@@ -249,7 +249,7 @@ class KidHomeViewBody extends StatelessWidget {
             ),
             CustomViewContainer(
               color: const Color.fromARGB(255, 166, 137, 206).withOpacity(0.6),
-              title: '',
+              title: 'Special Event',
               showCompletionImage: false,
               unitTitle: '',
               ontap: () {
