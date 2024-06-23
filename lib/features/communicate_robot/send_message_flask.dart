@@ -25,7 +25,9 @@ void sendMessageToRobotFlask(String message) async {
   } catch (_) {
     // Wait for 5 seconds before showing the snack bar
     Future.delayed(const Duration(seconds: 5), () {
-      print("robot not found $e");
+      if (kDebugMode) {
+        print("robot not found $e");
+      }
     });
   }
 }

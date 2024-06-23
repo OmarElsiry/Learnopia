@@ -3,7 +3,7 @@ import 'package:educational_kids_game/features/in%20side%20app/Challenges/presan
 import 'package:educational_kids_game/features/in%20side%20app/Challenges/presantation/view/widgets/lion_view.dart';
 import 'package:educational_kids_game/features/levels/puzzle_level_selection_page.dart';
 import 'package:flutter/material.dart';
-import '../../../../../pronounce/prounounciation_view.dart';
+import '../../../../../pronounce/pronounciation_levels.dart';
 import 'package:educational_kids_game/features/Games/Math game/presantation/view/math_games_view.dart';
 
 class GamesViewBody extends StatelessWidget {
@@ -54,7 +54,12 @@ class GamesViewBody extends StatelessWidget {
                 colortitle: const Color(0xffF55454),
                 subtitlt: 'Reading some word',
                 ontap: () {
-                  Navigator.pushNamed(context, ProunounceView.prounounceViewid);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProunounceViewLevels(),
+                    ),
+                  );
                 },
               ),
             ],

@@ -14,16 +14,10 @@ class MatchPageView extends StatelessWidget {
     return const Scaffold(
       body: MatchPageViewBody(
         choices: {
-          8: 'Five',
-          7: 'Seven',
-          4: 'Eight',
-          5: 'Four',
-        },
-        correctMatches: {
-          5: 'Five', // 1 (Apple) matches with 'Orange'
-          7: 'Seven', // 2 (Banana) matches with 'Apple'
-          8: 'Eight', // 3 (Orange) matches with 'Banana'
-          4: 'Four', // 4 (Grapes) matches with itself
+          '9': 'Nine',
+          '3': 'Three',
+          '5': 'Five',
+          '4': 'Four',
         },
       ),
     );

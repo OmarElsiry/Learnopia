@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:educational_kids_game/core/utils/screen_size.dart';
-import 'package:educational_kids_game/features/communicate_robot/send_message_flask.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+import 'package:educational_kids_game/core/utils/screen_size.dart';
+import 'package:educational_kids_game/features/communicate_robot/send_message_flask.dart';
 
 class PronounceViewBody extends StatefulWidget {
   final String targetWord;
@@ -21,7 +21,7 @@ class _PronounceViewBodyState extends State<PronounceViewBody> {
   String wordSpoken = '';
   double confidencePercentage = 0.0;
   List<String> spokenWords = [];
-  bool dialogShown = false; // Add this line
+  bool dialogShown = false;
 
   @override
   void initState() {
@@ -46,14 +46,13 @@ class _PronounceViewBodyState extends State<PronounceViewBody> {
   void stopListening() async {
     await speechToText.stop();
     if (mounted) {
-      // Check if the widget is still mounted
       setState(() {});
     }
   }
 
   @override
   void dispose() {
-    speechToText.cancel(); // Cancel the speech-to-text operation
+    speechToText.cancel();
     super.dispose();
   }
 
@@ -66,24 +65,18 @@ class _PronounceViewBodyState extends State<PronounceViewBody> {
 
         String targetWord = widget.targetWord.toLowerCase();
 
-        // if (!dialogShown && !spokenWords.contains(targetWord)) {
-        //   sendMessageToRobotFlask("$spokenWords");
-        // }
-        // Only show the dialog if it hasn't been shown yet
         if (!dialogShown && spokenWords.contains(targetWord)) {
           dialogShown = true;
 
-          // Wait for a short duration before navigating back
           Future.delayed(const Duration(milliseconds: 300), () {
             AwesomeDialog(
               context: context,
               dialogType: DialogType.success,
               animType: AnimType.rightSlide,
               title: 'Success',
-              desc: 'Awesome job You spelled "$targetWord" correctly.',
+              desc: 'Awesome job! You spelled "$targetWord" correctly.',
               btnOkOnPress: () {},
             ).show().then((_) {
-              // Assuming.show() returns a Future that completes when the dialog is dismissed
               Navigator.pop(context);
             });
           });
@@ -111,7 +104,7 @@ class _PronounceViewBodyState extends State<PronounceViewBody> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(15.0),
-                    child: Text("Prounounce the word ${widget.targetWord}"),
+                    child: Text("Pronounce the word ${widget.targetWord}"),
                   ),
                   Container(
                     padding: const EdgeInsets.all(15.0),
@@ -134,7 +127,7 @@ class _PronounceViewBodyState extends State<PronounceViewBody> {
             ),
           ),
         ),
-        const SizedBox(height: 20), // Adjust the height as needed
+        const SizedBox(height: 20),
         bottomNavigationBar(),
       ],
     );
@@ -145,45 +138,48 @@ class _PronounceViewBodyState extends State<PronounceViewBody> {
       padding: const EdgeInsets.all(14.0),
       child: SizedBox(
         width: ScreenSize.width * 0.6,
-        child: InkWell(
-          onTap: () async {
-            if (speechToText.isListening) {
-              // Stop listening after 4 seconds
-              Timer(const Duration(seconds: 4), () async {
-                stopListening();
-              });
-            } else {
-              // Start listening and then stop after 4 seconds
-              startListening();
-              Timer(const Duration(seconds: 4), stopListening);
-            }
-          },
-          child: Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: speechToText.isNotListening
-                ? Transform.scale(
-                    scale: 1.5,
-                    child: SizedBox(
+        child: Material(
+          // Wrap InkWell with Material widget
+          child: InkWell(
+            onTap: () async {
+              if (speechToText.isListening) {
+                Timer(const Duration(seconds: 4), () async {
+                  stopListening();
+                });
+              } else {
+                startListening();
+                Timer(const Duration(seconds: 4), stopListening);
+              }
+            },
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: speechToText.isNotListening
+                  ? Transform.scale(
+                      scale: 1.5,
+                      child: SizedBox(
+                        height: ScreenSize.height * 0.08,
+                        width: ScreenSize.width * 0.7,
+                        child: const Icon(
+                          Icons.mic_none,
+                          color: Color.fromARGB(255, 74, 109, 235),
+                        ),
+                      ),
+                    )
+                  : SizedBox(
                       height: ScreenSize.height * 0.08,
                       width: ScreenSize.width * 0.7,
-                      child: const Icon(Icons.mic_none,
-                          color: Color.fromARGB(255, 74, 109, 235)),
+                      child: SpinKitWave(
+                        itemCount: 9,
+                        size: ScreenSize.height * 0.07,
+                        type: SpinKitWaveType.start,
+                        color: const Color(0xffeb9f4a),
+                      ),
                     ),
-                  )
-                : SizedBox(
-                    height: ScreenSize.height * 0.08,
-                    width: ScreenSize.width * 0.7,
-                    child: SpinKitWave(
-                      itemCount: 9,
-                      size: ScreenSize.height * 0.07,
-                      type: SpinKitWaveType.start,
-                      color: const Color(0xffeb9f4a),
-                    ),
-                  ),
+            ),
           ),
         ),
       ),

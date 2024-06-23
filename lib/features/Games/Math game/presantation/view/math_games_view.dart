@@ -10,6 +10,6 @@ class MathGameView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: MyMathGamesScreen());
+    return const Scaffold(body: MathModes());
   }
 }

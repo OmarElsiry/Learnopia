@@ -6,8 +6,8 @@ import 'package:flutter_svg/svg.dart';
 import '../count_games_level_page/count_games_levels_view.dart';
 import '../match_page/match_page.dart';
 
-class MyMathGamesScreen extends StatelessWidget {
-  const MyMathGamesScreen({super.key});
+class MathModes extends StatelessWidget {
+  const MathModes({super.key});
 
   void _onTap(int index, BuildContext context) {
     if (index == 1) {
@@ -131,6 +131,7 @@ class MyMathGamesScreen extends StatelessWidget {
                       ),
                       child: Center(
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SvgPicture.asset(

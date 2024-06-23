@@ -12,6 +12,8 @@ class CountGamesLevelView extends StatefulWidget {
 }
 
 class _CountGamesLevelViewState extends State<CountGamesLevelView> {
+  double screenHeight = ScreenSize.height;
+  double screenWidth = ScreenSize.width;
   Route _createRoute(String correctAnswer, List<String> rectangleValues,
       String quizQuestion, String levelId) {
     return MaterialPageRoute(
@@ -26,31 +28,29 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
 
   @override
   Widget build(BuildContext context) {
-    final num height = ScreenSize.height;
+    final num height = screenHeight;
+    final num width = screenWidth;
+    final double gridSpacing = width * 0.06;
+
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(
-            kToolbarHeight), // Set the height of the custom AppBar
+        preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Container(
           height: height * 0.15,
           color: const Color(0xffFBDAB1),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 12.0),
-                  child: Text(
-                    'Select Level',
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 24,
-                        color: Color(0xffee8b60)),
-                  ),
+          child: const Center(
+            child: Padding(
+              padding: EdgeInsets.only(top: 12.0),
+              child: Text(
+                'Select Level',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 24,
+                  color: Color(0xffee8b60),
                 ),
-              )
-            ],
+              ),
+            ),
           ),
         ),
       ),
@@ -60,16 +60,16 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
           const Text(
             'Collected Stars',
             style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 0, 0, 0)),
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(
-                    24), // Adjust the radius for desired roundness
+                borderRadius: BorderRadius.circular(24),
                 child: const Icon(
                   Icons.star,
                   color: Colors.yellow,
@@ -79,21 +79,22 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
               Text(
                 '  ${CountLevels.passedLevelsCount} / 8    ',
                 style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0)),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                ),
               ),
             ],
           ),
-          Flexible(
+          Expanded(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0),
               child: GridView.count(
-                crossAxisCount: 2,
+                crossAxisCount:
+                    (width > 600) ? 3 : 2, // Adjust columns based on width
                 childAspectRatio: 14 / 15,
-                crossAxisSpacing: 24, // Spacing between columns
-                mainAxisSpacing:
-                    24, // Add this line to set spacing between rows
+                crossAxisSpacing: gridSpacing,
+                mainAxisSpacing: gridSpacing,
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -208,7 +209,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                           : const Color(0xFFFBE7C6),
                       txtcolor: CountLevels.passedLevelsCount >= 3
                           ? const Color(0xffC55C6C)
-                          : Colors.grey, // Example text color
+                          : Colors.grey,
                       starColor: CountLevels.passedLevelsCount >= 4
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
@@ -221,11 +222,11 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                         Navigator.push(
                           context,
                           _createRoute(
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.fifthLevelConstructor()
                                 .correctAnswer,
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.fifthLevelConstructor()
                                 .rectangleValues,
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.fifthLevelConstructor()
                                 .quizQuestion,
                             "countgame5",
                           ),
@@ -238,7 +239,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                           : const Color(0xffB4F8C8),
                       txtcolor: CountLevels.passedLevelsCount >= 4
                           ? const Color(0xff18B74B)
-                          : Colors.grey, // Example text color
+                          : Colors.grey,
                       starColor: CountLevels.passedLevelsCount >= 5
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
@@ -251,11 +252,11 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                         Navigator.push(
                           context,
                           _createRoute(
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.sixthLevelConstructor()
                                 .correctAnswer,
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.sixthLevelConstructor()
                                 .rectangleValues,
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.sixthLevelConstructor()
                                 .quizQuestion,
                             "countgame6",
                           ),
@@ -268,7 +269,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                           : const Color(0xffA0E7E5),
                       txtcolor: CountLevels.passedLevelsCount >= 5
                           ? const Color(0xff199EC2)
-                          : Colors.grey, // Example text color
+                          : Colors.grey,
                       starColor: CountLevels.passedLevelsCount >= 6
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
@@ -281,11 +282,11 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                         Navigator.push(
                           context,
                           _createRoute(
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.seventhLevelConstructor()
                                 .correctAnswer,
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.seventhLevelConstructor()
                                 .rectangleValues,
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.seventhLevelConstructor()
                                 .quizQuestion,
                             "countgame7",
                           ),
@@ -298,7 +299,7 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                           : const Color(0xFFFFAEBC),
                       txtcolor: CountLevels.passedLevelsCount >= 6
                           ? const Color(0xff199EC2)
-                          : Colors.grey, // Example text color
+                          : Colors.grey,
                       starColor: CountLevels.passedLevelsCount >= 7
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
@@ -311,11 +312,11 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                         Navigator.push(
                           context,
                           _createRoute(
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.eightLevelConstructor()
                                 .correctAnswer,
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.eightLevelConstructor()
                                 .rectangleValues,
-                            LevelConstructor.firstLevelConstructor()
+                            LevelConstructor.eightLevelConstructor()
                                 .quizQuestion,
                             "countgame8",
                           ),
@@ -327,8 +328,8 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
                           ? Colors.grey
                           : const Color(0xFFFBE7C6),
                       txtcolor: CountLevels.passedLevelsCount >= 7
-                          ? const Color(0xff199EC2)
-                          : Colors.grey, // Example text color
+                          ? const Color(0xffC55C6C)
+                          : Colors.grey,
                       starColor: CountLevels.passedLevelsCount >= 8
                           ? const Color(0xffffeb3b)
                           : Colors.grey,
@@ -347,15 +348,15 @@ class _CountGamesLevelViewState extends State<CountGamesLevelView> {
 
 class ColoredContainer extends StatelessWidget {
   final Color color;
-  final Color txtcolor; // This remains the same
-  final Color starColor; // New parameter for star icon color
+  final Color txtcolor;
+  final Color starColor;
   final String text;
 
   const ColoredContainer({
     super.key,
     required this.color,
     required this.txtcolor,
-    required this.starColor, // Make this required
+    required this.starColor,
     required this.text,
   });
 
@@ -372,52 +373,52 @@ class ColoredContainer extends StatelessWidget {
           margin: const EdgeInsets.all(4.0),
         ),
         Positioned(
-          left: 60, // Approximate position
-          top: 29, // Approximate position
-          child: Column(
-            children: [
-              Text(
-                text,
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 48,
-                  color: txtcolor,
-                  shadows: [
-                    Shadow(
-                      offset: const Offset(0, 4),
-                      blurRadius: 4,
-                      color: Colors.black.withOpacity(0.25),
-                    )
-                  ],
-                ),
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(44),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors
-                        .transparent, // Ensure it's transparent so the shadow shows
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color.fromARGB(255, 231, 210, 210)
-                            .withOpacity(0.5), // Adjust opacity as needed
-                        spreadRadius: 0,
-                        blurRadius: 5.18927,
-                        offset: const Offset(
-                            0, 5.18927), // Adjust shadow position as needed
-                      ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  text,
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontStyle: FontStyle.normal,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 48,
+                    color: txtcolor,
+                    shadows: [
+                      Shadow(
+                        offset: const Offset(0, 4),
+                        blurRadius: 4,
+                        color: Colors.black.withOpacity(0.25),
+                      )
                     ],
                   ),
-                  child: Icon(
-                    Icons.star,
-                    color: starColor, // Use the dynamic starColor here
-                    size: 28,
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(44),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(255, 231, 210, 210)
+                              .withOpacity(0.5),
+                          spreadRadius: 0,
+                          blurRadius: 5.18927,
+                          offset: const Offset(0, 5.18927),
+                        ),
+                      ],
+                    ),
+                    child: Icon(
+                      Icons.star,
+                      color: starColor,
+                      size: ScreenSize.height * 0.04,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
