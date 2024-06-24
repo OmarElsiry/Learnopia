@@ -3,6 +3,8 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../communicate_robot/send_message_flask.dart';
+
 class MatchPageViewBody extends StatefulWidget {
   final Map<String, String> choices;
 
@@ -140,6 +142,8 @@ class _MatchPageViewBodyState extends State<MatchPageViewBody> {
                     onPressed: () {
                       // Check if score length is 4
                       if (score.length == 4) {
+                        sendMessageToRobotFlask("passed");
+
                         // Show success dialog
                         AwesomeDialog(
                             context: context,
@@ -152,6 +156,7 @@ class _MatchPageViewBodyState extends State<MatchPageViewBody> {
                               Navigator.pop(context);
                             }).show();
                       } else {
+                        sendMessageToRobotFlask("failed");
                         // Show failure dialog
                         AwesomeDialog(
                           context: context,

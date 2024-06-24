@@ -1,27 +1,26 @@
 import 'dart:async';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:speech_to_text/speech_to_text.dart';
-import 'package:educational_kids_game/core/utils/screen_size.dart';
-import 'package:educational_kids_game/features/communicate_robot/send_message_flask.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class PronounceViewBody extends StatefulWidget {
+class ProunounceViewBody extends StatefulWidget {
   final String targetWord;
 
-  const PronounceViewBody({super.key, required this.targetWord});
+  const ProunounceViewBody({super.key, required this.targetWord});
 
   @override
-  State<PronounceViewBody> createState() => _PronounceViewBodyState();
+  State<ProunounceViewBody> createState() => _ProunounceViewBodyState();
 }
 
-class _PronounceViewBodyState extends State<PronounceViewBody> {
+class _ProunounceViewBodyState extends State<ProunounceViewBody> {
   final SpeechToText speechToText = SpeechToText();
   bool speechEnable = false;
   String wordSpoken = '';
   double confidencePercentage = 0.0;
   List<String> spokenWords = [];
   bool dialogShown = false;
+  bool isListening = false; // Track the listening state
 
   @override
   void initState() {
@@ -36,17 +35,24 @@ class _PronounceViewBodyState extends State<PronounceViewBody> {
 
   void startListening() async {
     spokenWords.clear();
+    setState(() {
+      isListening = true; // Start the animation
+    });
 
     await speechToText.listen(onResult: onSpeechResult);
     setState(() {
       confidencePercentage = 0.0;
     });
+
+    Timer(const Duration(seconds: 4), stopListening);
   }
 
   void stopListening() async {
     await speechToText.stop();
     if (mounted) {
-      setState(() {});
+      setState(() {
+        isListening = false; // Stop the animation
+      });
     }
   }
 
@@ -87,100 +93,61 @@ class _PronounceViewBodyState extends State<PronounceViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: Scaffold(
-            appBar: AppBar(
-              title: const Text(
-                'Speech To Text',
-                style: TextStyle(color: Colors.white),
-              ),
-              backgroundColor: const Color.fromARGB(226, 103, 133, 242),
-              centerTitle: true,
-            ),
-            body: Center(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text("Pronounce the word ${widget.targetWord}"),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text(
-                      wordSpoken,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                          fontSize: 25),
-                    ),
-                  ),
-                  if (speechToText.isNotListening && confidencePercentage > 0)
-                    Text(
-                      'Confidence: ${(confidencePercentage * 100).toStringAsFixed(1)}',
-                      style: const TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
-                    ),
-                ],
-              ),
-            ),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Speech To Text',
+          style: TextStyle(color: Colors.white),
         ),
-        const SizedBox(height: 20),
-        bottomNavigationBar(),
-      ],
-    );
-  }
-
-  Widget bottomNavigationBar() {
-    return Padding(
-      padding: const EdgeInsets.all(14.0),
-      child: SizedBox(
-        width: ScreenSize.width * 0.6,
-        child: Material(
-          // Wrap InkWell with Material widget
-          child: InkWell(
-            onTap: () async {
-              if (speechToText.isListening) {
-                Timer(const Duration(seconds: 4), () async {
-                  stopListening();
-                });
-              } else {
-                startListening();
-                Timer(const Duration(seconds: 4), stopListening);
-              }
-            },
-            child: Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(24),
+        backgroundColor: Colors.blueGrey,
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Text("Pronounce the word ${widget.targetWord}"),
+            ),
+            Container(
+              padding: const EdgeInsets.all(15.0),
+              child: Text(
+                wordSpoken,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
+                  fontSize: 25,
+                ),
               ),
-              child: speechToText.isNotListening
-                  ? Transform.scale(
-                      scale: 1.5,
-                      child: SizedBox(
-                        height: ScreenSize.height * 0.08,
-                        width: ScreenSize.width * 0.7,
-                        child: const Icon(
-                          Icons.mic_none,
-                          color: Color.fromARGB(255, 74, 109, 235),
-                        ),
-                      ),
+            ),
+            if (speechToText.isNotListening && confidencePercentage > 0)
+              Text(
+                'Confidence: ${(confidencePercentage * 100).toStringAsFixed(1)}%',
+                style: const TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            const SizedBox(height: 20),
+            GestureDetector(
+              onTap: () {
+                if (!isListening) {
+                  startListening();
+                }
+              },
+              child: isListening
+                  ? const SpinKitRing(
+                      color: Colors.blueGrey,
+                      size: 50.0,
                     )
-                  : SizedBox(
-                      height: ScreenSize.height * 0.08,
-                      width: ScreenSize.width * 0.7,
-                      child: SpinKitWave(
-                        itemCount: 9,
-                        size: ScreenSize.height * 0.07,
-                        type: SpinKitWaveType.start,
-                        color: const Color(0xffeb9f4a),
-                      ),
+                  : const Icon(
+                      Icons.mic_off,
+                      size: 50.0,
+                      color: Colors.blueGrey,
                     ),
             ),
-          ),
+          ],
         ),
       ),
     );

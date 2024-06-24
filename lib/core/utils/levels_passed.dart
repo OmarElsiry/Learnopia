@@ -23,3 +23,25 @@ class CountLevels {
   }
 }
 
+class LoggedBoolClass {
+  static List<String> loggedBool = [];
+
+  static void addloggedBool (String Logged) {
+    if (!loggedBool.contains(Logged)) {
+      loggedBool.add(Logged);
+      saveLogged();
+    }
+  }
+
+  static int get loggedpoolCount => loggedBool.length;
+
+  static Future<void> saveLogged() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.setStringList('loggedBool', loggedBool);
+  }
+
+  static Future<void> loadCountLevelsPassed() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    loggedBool = sharedPreferences.getStringList('loggedBool') ?? [];
+  }
+}

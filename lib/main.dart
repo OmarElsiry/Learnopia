@@ -6,6 +6,7 @@ import 'package:educational_kids_game/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'features/navigation_bar_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,11 @@ void main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
   await CountLevels.loadCountLevelsPassed();
+  await LoggedBoolClass.loadCountLevelsPassed();
 
-  runApp(const EducationKids());
+  if (LoggedBoolClass.loggedpoolCount > 0) {
+    runApp(const MaterialApp(home: NavigationBarView()));
+  } else {
+    runApp(const EducationKids());
+  }
 }

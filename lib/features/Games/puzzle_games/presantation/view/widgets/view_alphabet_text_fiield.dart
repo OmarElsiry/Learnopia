@@ -1,3 +1,4 @@
+import 'package:educational_kids_game/features/communicate_robot/send_message_flask.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
 
@@ -73,9 +74,11 @@ class _ViewOtpState extends State<ViewOtp> {
                 setState(() {
                   success = true;
                   levelcount += 1;
+                  sendMessageToRobotFlask("passed");
                   Navigator.pop(context); // Navigates back when successful
                 });
               } else {
+                sendMessageToRobotFlask("failed");
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Fauiler please try again')),
                 );

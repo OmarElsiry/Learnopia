@@ -2,6 +2,8 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:educational_kids_game/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../communicate_robot/send_message_flask.dart';
+
 class QuizPage extends StatefulWidget {
   final List<Map<String, dynamic>> quizData;
 
@@ -36,6 +38,7 @@ class _QuizPageState extends State<QuizPage> {
             currentStage++;
           } else {
             _showSuccessDialog(context);
+            sendMessageToRobotFlask("passed");
           }
         });
       });

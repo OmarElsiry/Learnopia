@@ -1,4 +1,5 @@
 import 'package:educational_kids_game/core/utils/screen_size.dart';
+import 'package:educational_kids_game/features/communicate_robot/send_message_flask.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,6 +28,7 @@ class CountPageViewbody extends StatelessWidget {
       if (kDebugMode) {
         print("count games levels passed: ${CountLevels.passedLevelsCount}");
       }
+      sendMessageToRobotFlask("passed");
       Navigator.of(context).pop();
       Navigator.pushReplacement(
         context,

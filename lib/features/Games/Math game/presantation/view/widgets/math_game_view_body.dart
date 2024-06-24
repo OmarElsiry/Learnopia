@@ -128,7 +128,7 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Level Passed')),
                     );
-                    sendMessageToRobotFlask("Game_Passed");
+                    sendMessageToRobotFlask("passed");
                     Navigator.pop(context, GamesView.gamesviewid);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -136,8 +136,7 @@ class _MathGameViewBodyState extends State<MathGameViewBody> {
                         content: Text('Try Again'),
                       ),
                     );
-                    sendMessageToRobotFlask("Game_Failed");
-
+                    sendMessageToRobotFlask("failed");
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(

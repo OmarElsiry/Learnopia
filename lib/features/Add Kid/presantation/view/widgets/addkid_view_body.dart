@@ -8,6 +8,7 @@ import 'package:educational_kids_game/features/auth_features/sign_up/presantatio
 import 'package:educational_kids_game/features/navigation_bar_view.dart';
 import 'package:flutter/material.dart';
 
+
 class AddKidViewBody extends StatefulWidget {
   const AddKidViewBody({super.key});
   static String kidname = '';
@@ -22,82 +23,84 @@ class _AddKidViewBodyState extends State<AddKidViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Form(
-        key: formkey,
-        child: Column(
-          children: [
-            const CustomAppbarAddKid(),
-            const SizedBox(
-              height: 40,
-            ),
-            const Text(
-              'Your Child’s Name',
-              style: TextStyle(fontFamily: 'Roboto', fontSize: 18),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 26),
-              child: CustomTextField(
-                validator: (data) {
-                  return 'Please enter your child’s name';
-                },
-                obscuretext: false,
-                name: 'Name',
-                onchanged: (data) {
-                  setState(() {
-                    AddKidViewBody.kidname = data;
-                  });
-                },
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Form(
+          key: formkey,
+          child: Column(
+            children: [
+              const CustomAppbarAddKid(),
+              const SizedBox(
+                height: 40,
               ),
-            ),
-            const SizedBox(
-              height: 60,
-            ),
-            const Text(
-              'Age',
-              style: TextStyle(fontFamily: 'Roboto', fontSize: 18),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            const ShowRowAddKidForm1(),
-            const SizedBox(
-              height: 20,
-            ),
-            const SizedBox(
-              height: 35,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: CustomButtonGo(
-                color: AddKidViewBody.kidname.isEmpty
-                    ? Colors.grey
-                    : const Color(0xffEB9F4A),
-                name: 'Go',
-                onTap: () async {
-                  if (AddKidViewBody.kidname.isEmpty) {
-                    if (formkey.currentState!.validate()) {
-                      return;
+              const Text(
+                'Your Child’s Name',
+                style: TextStyle(fontFamily: 'Roboto', fontSize: 18),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26),
+                child: CustomTextField(
+                  validator: (data) {
+                    return 'Please enter your child’s name';
+                  },
+                  obscuretext: false,
+                  name: 'Name',
+                  onchanged: (data) {
+                    setState(() {
+                      AddKidViewBody.kidname = data;
+                    });
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+              const Text(
+                'Age',
+                style: TextStyle(fontFamily: 'Roboto', fontSize: 18),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              const ShowRowAddKidForm1(),
+              const SizedBox(
+                height: 20,
+              ),
+              const SizedBox(
+                height: 35,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: CustomButtonGo(
+                  color: AddKidViewBody.kidname.isEmpty
+                      ? Colors.grey
+                      : const Color(0xffEB9F4A),
+                  name: 'Go',
+                  onTap: () async {
+                    if (AddKidViewBody.kidname.isEmpty) {
+                      if (formkey.currentState!.validate()) {
+                        return;
+                      }
+                    } else {
+                      Navigator.pushNamed(
+                          context, NavigationBarView.navigationbar);
+                      NotificationService notificationService =
+                          NotificationService();
+                      await notificationService.showZonedScheduledNotifications(
+                          3, 'kid games', 'Let`s play kid', 'test');
                     }
-                  } else {
-                    Navigator.pushNamed(
-                        context, NavigationBarView.navigationbar);
-                    NotificationService notificationService =
-                        NotificationService();
-                    await notificationService.showZonedScheduledNotifications(
-                        3, 'kid games', 'Let`s play kid', 'test');
-                  }
-                },
+                  },
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Image.asset(AssetsData.logoapp),
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              Image.asset(AssetsData.logoapp),
+            ],
+          ),
         ),
       ),
     );

@@ -5,17 +5,17 @@ import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presan
 import 'package:educational_kids_game/features/in%20side%20app/Kid%20home/presantation/view/widgets/row_text_view.dart';
 import 'package:educational_kids_game/features/in%20side%20app/unit%20quizes/presantation/view/widgets/quiz_data.dart';
 import 'package:educational_kids_game/features/in%20side%20app/unit%20vids/presantation/view/vids_view.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../communicate_robot/send_message_flask.dart';
 import '../../../../../levels/nums_level_selection_page.dart';
 import '../../../../unit quizes/presantation/view/quizes_view.dart';
+import '../computer vision/what_color.dart';
 
 class KidHomeViewBody extends StatelessWidget {
   const KidHomeViewBody({super.key});
   @override
   Widget build(BuildContext context) {
+    ScreenSize.initialize(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -166,11 +166,21 @@ class KidHomeViewBody extends StatelessWidget {
                   SizedBox(
                     width: ScreenSize.width * 0.01,
                   ),
-                  const CustomViewContainer(
-                    color: Color(0xffC78FF3),
-                    title: '',
+                  CustomViewContainer(
+                    color: const Color(0xffC78FF3),
+                    title: 'QuizMath',
                     showCompletionImage: false,
                     unitTitle: '',
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => QuizPage(
+                            quizData: quizOneData,
+                          ),
+                        ),
+                      );
+                    },
                   )
                 ],
               ),
@@ -191,13 +201,6 @@ class KidHomeViewBody extends StatelessWidget {
                 children: [
                   CustomViewContainer(
                       ontap: () {
-                        try {
-                          sendMessageToRobotFlask("Game_Passed");
-                        } catch (error) {
-                          if (kDebugMode) {
-                            print('Error sending message to the robot: $error');
-                          }
-                        }
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -224,7 +227,7 @@ class KidHomeViewBody extends StatelessWidget {
                   ),
                   CustomViewContainer(
                     color: const Color(0xff0074FF).withOpacity(0.6),
-                    title: '',
+                    title: 'QuizEnglish',
                     showCompletionImage: false,
                     unitTitle: '',
                     ontap: () {
@@ -247,19 +250,46 @@ class KidHomeViewBody extends StatelessWidget {
                 title: 'Advanced math',
               ),
             ),
-            CustomViewContainer(
-              color: const Color.fromARGB(255, 166, 137, 206).withOpacity(0.6),
-              title: 'Special Event',
-              showCompletionImage: false,
-              unitTitle: '',
-              ontap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => NumsLevelSelectionPage(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CustomViewContainer(
+                    color: const Color.fromARGB(255, 166, 137, 206)
+                        .withOpacity(0.6),
+                    title: '',
+                    showCompletionImage: false,
+                    unitTitle: 'Special Event',
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NumsLevelSelectionPage(),
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
+                  SizedBox(
+                    width: ScreenSize.width * 0.01,
+                  ),
+                  CustomViewContainer(
+                    color: const Color.fromARGB(255, 135, 221, 186)
+                        .withOpacity(0.6),
+                    title: '',
+                    showCompletionImage: false,
+                    unitTitle: 'What is',
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ColorDetectionPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: ScreenSize.height * 0.09,
