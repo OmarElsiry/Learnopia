@@ -2,13 +2,11 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:educational_kids_game/features/Add%20Kid/presantation/view/addkid_view.dart';
 import 'package:educational_kids_game/core/Notification_Service/local_notification_service.dart';
 import 'package:educational_kids_game/features/sign_in/logic/sign_in_cubit.dart';
-
 import 'package:educational_kids_game/features/sign_in/views/sections/app_bar_section.dart';
 import 'package:educational_kids_game/features/sign_in/views/sections/input_email_and_password.dart';
 import 'package:educational_kids_game/features/sign_in/views/sections/verify_email_to_login_and_navigate_section.dart';
 import 'package:educational_kids_game/features/sign_in/views/widgets/check_box.dart';
 import 'package:educational_kids_game/features/sign_up/views/widgets/awesome_widgets.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -23,7 +21,7 @@ class SigninViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignInCubit, SignInState>(
       listener: (context, state) {
-        Listener_Method(state, context);
+        listenerMethod(state, context);
       },
       builder: (context, state) {
         return ModalProgressHUD(
@@ -46,7 +44,7 @@ class SigninViewBody extends StatelessWidget {
                     },
                   ),
                   VerifyEmailToLoginAndNavigateSection(
-                    onTap: () async => Chack_for_navigate_method(context),
+                    onTap: () async => chackfornavigateMethod(context),
                   ),
                 ],
               ),
@@ -57,8 +55,8 @@ class SigninViewBody extends StatelessWidget {
     );
   }
 
-  // ignore: non_constant_identifier_names
-  void Chack_for_navigate_method(BuildContext context) {
+  
+  void chackfornavigateMethod(BuildContext context) {
     if (formkey.currentState!.validate()) {
       if (isChecked == true) {
         context.read<SignInCubit>().Sign_In(email: email!, password: password!);
@@ -72,8 +70,8 @@ class SigninViewBody extends StatelessWidget {
     }
   }
 
-  // ignore: non_constant_identifier_names
-  void Listener_Method(SignInState state, BuildContext context) async {
+
+  void listenerMethod(SignInState state, BuildContext context) async {
     if (state is SignInLoading) {
       isloading = state.isLoading;
     } else if (state is SignInSuccess) {
