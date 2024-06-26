@@ -12,12 +12,13 @@ import 'package:educational_kids_game/features/sign_up/logic/sign_up_cubit.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 // ignore: must_be_immutable
 class SignupViewBody extends StatelessWidget {
   SignupViewBody({super.key, this.email, this.password});
   String? email, password, firstname, lastname, confiempassword;
   GlobalKey<FormState> formkey = GlobalKey();
- 
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -77,7 +78,7 @@ class SignupViewBody extends StatelessWidget {
         if (confiempassword == password) {
           context
               .read<SignUpCubit>()
-              .Sign_up(email: email!, password: password!);
+              .signUp(email: email!, password: password!);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
