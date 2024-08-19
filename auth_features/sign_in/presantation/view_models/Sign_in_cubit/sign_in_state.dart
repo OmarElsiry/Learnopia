@@ -1,0 +1,19 @@
+part of 'sign_in_cubit.dart';
+
+@immutable
+sealed class SignInState {}
+
+final class SignInInitial extends SignInState {}
+
+final class SignInSuccess extends SignInState {}
+
+final class SignInLoading extends SignInState {
+  final bool isLoading;
+
+  SignInLoading({this.isLoading = false});
+}
+
+final class SignInFailure extends SignInState {
+  final String errmessage;
+  SignInFailure({required this.errmessage});
+}
