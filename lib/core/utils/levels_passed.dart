@@ -7,7 +7,7 @@ class Levels {
     if (!levelsPassed.contains(levelId)) {
       levelsPassed.add(levelId);
       // Corrected line to add only levelId
-      SharedPrefHelper.setData(levelId, levelsPassed.length);
+      SharedPrefHelper.setData(levelsPassed as String, levelId);
     }
   }
 

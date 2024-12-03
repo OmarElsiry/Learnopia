@@ -1,5 +1,3 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:bloc/bloc.dart';
 import 'package:educational_kids_game/features/Add%20Kid/presantation/view/addkid_view.dart';
 import 'package:educational_kids_game/core/Notification_Service/local_notification_service.dart';
@@ -12,12 +10,12 @@ part 'sign_up_state.dart';
 class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit() : super(SignUpInitial());
 
-  Future<void> Sign_up(
-      {required String email, required String password}) async {
+  Future<void> signUp({required String email, required String password}) async {
     emit(SignUpLoading());
     try {
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+          
       emit(SignUpSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {

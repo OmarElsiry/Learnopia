@@ -8,7 +8,7 @@ import 'package:educational_kids_game/features/sign_up/logic/sign_up_cubit.dart'
 import 'package:educational_kids_game/features/sign_up/views/signup_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/Challenges/view/Games_view.dart';
+import '../../features/Games_view/view/Games_view.dart';
 import '../../features/levels/nums_level_selection_page.dart';
 import '../../features/levels/puzzle_level_selection_page.dart';
 import '../../features/pronounce/prounounciation_view.dart';

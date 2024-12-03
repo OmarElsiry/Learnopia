@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/utils/levels_passed.dart';
+import '../../../../../core/utils/styles.dart';
 import '../../count_games_level_page/count_games_levels_view.dart';
 
 class CountPageViewbody extends StatelessWidget {
@@ -109,38 +110,3 @@ class CountPageViewbody extends StatelessWidget {
   }
 }
 
-class CustomText extends StatelessWidget {
-  final String text;
-  final double fontSize; // Default fontSize
-  final String fontFamily; // Default fontFamily
-  final FontStyle fontStyle; // Default fontStyle
-  final FontWeight fontWeight; // Default fontWeight
-  final Color color; // Default color
-
-  const CustomText({
-    super.key,
-    required this.text,
-    this.fontSize = 48, // Default fontSize
-    this.fontFamily = 'Poppins', // Default fontFamily
-    this.fontStyle = FontStyle.normal, // Default fontStyle
-    this.fontWeight = FontWeight.w700, // Default fontWeight
-    this.color = const Color(0xffEE8B60), // Default color
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    // Construct the TextStyle with the provided and default values
-    TextStyle textStyle = TextStyle(
-      fontSize: fontSize,
-      fontFamily: fontFamily,
-      fontStyle: fontStyle,
-      fontWeight: fontWeight,
-      color: color,
-    );
-
-    return Text(
-      text,
-      style: textStyle,
-    );
-  }
-}
